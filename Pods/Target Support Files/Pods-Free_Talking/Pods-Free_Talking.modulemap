@@ -1,0 +1,6 @@
+framework module Pods_Free_Talking {
+  umbrella header "Pods-Free_Talking-umbrella.h"
+
+  export *
+  module * { export * }
+}

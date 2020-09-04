@@ -7,6 +7,7 @@ target 'Free_Talking' do
 
 	pod 'Moya/RxSwift', '~> 14.0'
   	pod 'RxCocoa'
+	pod 'Firebase/Analytics'
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'

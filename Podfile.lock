@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (5.2.1)
+  - Firebase/Analytics (6.31.1):
+    - Firebase/Core
   - Firebase/Auth (6.31.1):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.9.0)
@@ -90,6 +92,7 @@ PODS:
   - RxSwift (5.1.1)
 
 DEPENDENCIES:
+  - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -139,6 +142,6 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 4d5f8974bbac02cb389373b9b249fd4d5ebb9649
+PODFILE CHECKSUM: 2ef3347e862701063711780201e31aba6ec91a0f
 
 COCOAPODS: 1.9.3

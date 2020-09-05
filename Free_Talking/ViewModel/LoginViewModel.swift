@@ -7,7 +7,25 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+import Firebase
 
-class LoginViewModel {
+class LoginViewModel : BaseViewModel {
     
+    let email = BehaviorRelay(value: "")
+    let pw = BehaviorRelay(value: "")
+    
+    func login() {
+        isLoading.accept(true)
+        
+        Auth.auth().signIn(withEmail: email.value, password: pw.value) { (user, error) in
+            if (user != nil) {
+                self.isSuccess.accept(true)
+            } else {
+                self.isError.accept(true)
+            }
+            self.isLoading.accept(false)
+        }
+    }
 }

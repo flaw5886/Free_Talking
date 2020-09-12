@@ -19,12 +19,13 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginButton.layer.cornerRadius = 5
     }
     
     override func configureCallback() {
         viewModel.isSuccess.bind { value in
             if value {
-                self.performSegue(withIdentifier: "showRegister", sender: nil)
+                self.performSegue(withIdentifier: "showMain", sender: nil)
             }
         }.disposed(by: disposeBag)
         

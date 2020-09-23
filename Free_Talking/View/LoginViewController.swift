@@ -17,10 +17,11 @@ class LoginViewController: BaseViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func initUI() {
         loginButton.layer.cornerRadius = 5
     }
+    
+    @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) { }
     
     override func configureCallback() {
         viewModel.isSuccess.bind { value in
@@ -39,18 +40,8 @@ class LoginViewController: BaseViewController {
         
         viewModel.isError.bind { value in
             if value {
-                let alert = UIAlertController(
-                title: "확인 실패",
-                message: "이메일 또는 비밀번호가 일치하지 않습니다",
-                preferredStyle: .alert)
-                
-                let action = UIAlertAction(
-                    title: "확인",
-                    style: .default,
-                    handler: nil)
-                
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
+                self.present(self.standardAlert(title: "로그인 실패", message: "이메일 또는 비밀번호가 일치하지 않습니다", actionTitle: "확인"),
+                             animated: true, completion: nil)
             }
         }.disposed(by: disposeBag)
     }

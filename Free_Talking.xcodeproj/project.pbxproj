@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		0480889C6E104AC2003AC36D /* Pods_Free_Talking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2703BC44BAB8F6F169DFF1DC /* Pods_Free_Talking.framework */; };
+		8D09F649251AC39100E1717D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09F648251AC39100E1717D /* RegisterViewModel.swift */; };
+		8D31E64D2518536D00852288 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D31E64C2518536D00852288 /* RegisterViewController.swift */; };
 		8D4233AB2501C7A400D96C36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4233AA2501C7A400D96C36 /* AppDelegate.swift */; };
 		8D4233AD2501C7A400D96C36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4233AC2501C7A400D96C36 /* SceneDelegate.swift */; };
 		8D4233AF2501C7A400D96C36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4233AE2501C7A400D96C36 /* LoginViewController.swift */; };
 		8D4233B22501C7A400D96C36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4233B02501C7A400D96C36 /* Main.storyboard */; };
 		8D4233B42501C7A500D96C36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4233B32501C7A500D96C36 /* Assets.xcassets */; };
 		8D4233B72501C7A500D96C36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4233B52501C7A500D96C36 /* LaunchScreen.storyboard */; };
+		8D65D6EA25118B1900B133E0 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6E925118B1900B133E0 /* FirebaseService.swift */; };
+		8D65D6EC25118D1C00B133E0 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6EB25118D1C00B133E0 /* ChatMessage.swift */; };
+		8D65D6EE25118D3200B133E0 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6ED25118D3200B133E0 /* Group.swift */; };
+		8D65D6F025118D4B00B133E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6EF25118D4B00B133E0 /* User.swift */; };
+		8D65D6F22511921900B133E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F12511921900B133E0 /* HomeViewController.swift */; };
+		8D65D6F42511929100B133E0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F32511929100B133E0 /* HomeViewModel.swift */; };
+		8D65D6F62511946C00B133E0 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F52511946C00B133E0 /* ChatListViewController.swift */; };
+		8D65D6F82511947900B133E0 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F72511947900B133E0 /* ChatListViewModel.swift */; };
+		8D65D6FA2511969C00B133E0 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F92511969C00B133E0 /* GroupCell.swift */; };
+		8D65D6FD251199F000B133E0 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6FC251199F000B133E0 /* UserCell.swift */; };
 		8DC0D19C2503EA84009CB3DD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0D19A2503EA84009CB3DD /* UIViewControllerExtension.swift */; };
 		8DC0D19D2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0D19B2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift */; };
 		8DD00A8F2501CB4E003468C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD00A8E2501CB4E003468C8 /* GoogleService-Info.plist */; };
@@ -26,6 +38,8 @@
 		056F40B06D0C42D4FB5C6971 /* Pods-Free_Talking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Free_Talking.debug.xcconfig"; path = "Target Support Files/Pods-Free_Talking/Pods-Free_Talking.debug.xcconfig"; sourceTree = "<group>"; };
 		2703BC44BAB8F6F169DFF1DC /* Pods_Free_Talking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Free_Talking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB5D466F13774BF695C3335 /* Pods-Free_Talking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Free_Talking.release.xcconfig"; path = "Target Support Files/Pods-Free_Talking/Pods-Free_Talking.release.xcconfig"; sourceTree = "<group>"; };
+		8D09F648251AC39100E1717D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		8D31E64C2518536D00852288 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8D4233A72501C7A400D96C36 /* Free_Talking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Free_Talking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4233AA2501C7A400D96C36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D4233AC2501C7A400D96C36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +48,16 @@
 		8D4233B32501C7A500D96C36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4233B62501C7A500D96C36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D4233B82501C7A500D96C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D65D6E925118B1900B133E0 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		8D65D6EB25118D1C00B133E0 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		8D65D6ED25118D3200B133E0 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		8D65D6EF25118D4B00B133E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8D65D6F12511921900B133E0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8D65D6F32511929100B133E0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8D65D6F52511946C00B133E0 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		8D65D6F72511947900B133E0 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		8D65D6F92511969C00B133E0 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		8D65D6FC251199F000B133E0 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		8DC0D19A2503EA84009CB3DD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8DC0D19B2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewExtension.swift; sourceTree = "<group>"; };
 		8DD00A8E2501CB4E003468C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -87,6 +111,7 @@
 				8DEE328E2501EA8D00FBD592 /* Base */,
 				8DD00A902501CE6A003468C8 /* View */,
 				8DD00A912501CE85003468C8 /* ViewModel */,
+				8D65D6E825118AE600B133E0 /* Model */,
 				8DC0D1992503EA4C009CB3DD /* Extension */,
 				8D4233AA2501C7A400D96C36 /* AppDelegate.swift */,
 				8D4233AC2501C7A400D96C36 /* SceneDelegate.swift */,
@@ -95,6 +120,26 @@
 				8DD00A8E2501CB4E003468C8 /* GoogleService-Info.plist */,
 			);
 			path = Free_Talking;
+			sourceTree = "<group>";
+		};
+		8D65D6E825118AE600B133E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D65D6E925118B1900B133E0 /* FirebaseService.swift */,
+				8D65D6EB25118D1C00B133E0 /* ChatMessage.swift */,
+				8D65D6ED25118D3200B133E0 /* Group.swift */,
+				8D65D6EF25118D4B00B133E0 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8D65D6FB251199E200B133E0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8D65D6F92511969C00B133E0 /* GroupCell.swift */,
+				8D65D6FC251199F000B133E0 /* UserCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		8DC0D1992503EA4C009CB3DD /* Extension */ = {
@@ -109,7 +154,11 @@
 		8DD00A902501CE6A003468C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8D65D6FB251199E200B133E0 /* Cell */,
 				8D4233AE2501C7A400D96C36 /* LoginViewController.swift */,
+				8D65D6F12511921900B133E0 /* HomeViewController.swift */,
+				8D65D6F52511946C00B133E0 /* ChatListViewController.swift */,
+				8D31E64C2518536D00852288 /* RegisterViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				8DD00A922501CE9A003468C8 /* LoginViewModel.swift */,
+				8D65D6F32511929100B133E0 /* HomeViewModel.swift */,
+				8D65D6F72511947900B133E0 /* ChatListViewModel.swift */,
+				8D09F648251AC39100E1717D /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -265,13 +317,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D65D6EE25118D3200B133E0 /* Group.swift in Sources */,
 				8DEE32912501EAA400FBD592 /* BaseViewController.swift in Sources */,
 				8DD00A932501CE9A003468C8 /* LoginViewModel.swift in Sources */,
+				8D65D6FA2511969C00B133E0 /* GroupCell.swift in Sources */,
+				8D31E64D2518536D00852288 /* RegisterViewController.swift in Sources */,
 				8D4233AF2501C7A400D96C36 /* LoginViewController.swift in Sources */,
+				8D65D6EC25118D1C00B133E0 /* ChatMessage.swift in Sources */,
 				8D4233AB2501C7A400D96C36 /* AppDelegate.swift in Sources */,
+				8D65D6EA25118B1900B133E0 /* FirebaseService.swift in Sources */,
 				8DC0D19C2503EA84009CB3DD /* UIViewControllerExtension.swift in Sources */,
+				8D65D6F025118D4B00B133E0 /* User.swift in Sources */,
+				8D09F649251AC39100E1717D /* RegisterViewModel.swift in Sources */,
+				8D65D6F62511946C00B133E0 /* ChatListViewController.swift in Sources */,
+				8D65D6F82511947900B133E0 /* ChatListViewModel.swift in Sources */,
+				8D65D6F42511929100B133E0 /* HomeViewModel.swift in Sources */,
 				8D4233AD2501C7A400D96C36 /* SceneDelegate.swift in Sources */,
+				8D65D6FD251199F000B133E0 /* UserCell.swift in Sources */,
 				8DEE32922501EAA400FBD592 /* BaseViewModel.swift in Sources */,
+				8D65D6F22511921900B133E0 /* HomeViewController.swift in Sources */,
 				8DC0D19D2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98Y25V599G;
 				INFOPLIST_FILE = Free_Talking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,6 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98Y25V599G;
 				INFOPLIST_FILE = Free_Talking/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -16,13 +16,33 @@ class BaseViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
         configureCallback()
         bindViewModel()
     }
     
+    func initUI() { }
+    
     func configureCallback() { }
     
     func bindViewModel() { }
+    
+    func standardAlert(title: String, message: String, actionTitle: String) -> UIAlertController {
+        
+        let alert = UIAlertController(
+        title: title,
+        message: message,
+        preferredStyle: .alert)
+        
+        let action = UIAlertAction(
+            title: actionTitle,
+            style: .default,
+            handler: nil)
+        
+        alert.addAction(action)
+        
+        return alert
+    }
 }
 
 

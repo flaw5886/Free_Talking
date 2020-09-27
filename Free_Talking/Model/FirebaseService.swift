@@ -8,34 +8,37 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
+import FirebaseStorage
 
-fileprivate let baseRef = FirebaseDatabase.DatabaseReference()
+fileprivate let dataBaseRef = Database.database().reference()
+fileprivate let storageRef = Storage.storage().reference()
 
 class FirebaseService {
     static let instance = FirebaseService()
     
-    // 특정 데이터들이 저장되는 장소에 대한 레퍼런스
-    // user : 특정 사용자
-    let userRef = baseRef.child("user")
+    // 사용자
+    let userRef = dataBaseRef.child("user")
     
-    // group : 채팅방 하나 단위
-    let groupRef = baseRef.child("group")
+    // 사용자 사진
+    let userImageRef = storageRef.child("userImages")
     
-    // message : 채팅 말풍선 하나 단위
-    let messageRef = baseRef.child("message")
-    
-    // 현재 접속중인 유저의 uid
+    // 현재 유저
     var currentUserUid: String? {
+            get {
+                guard let uid = Auth.auth().currentUser?.uid else {
+                    return nil
+                }
+                return uid
+            }
+        }
+    
+    var currentUserEmail: String? {
         get {
-            guard let uid = Auth.auth().currentUser?.uid else {
+            guard let email = Auth.auth().currentUser?.email else {
                 return nil
             }
-            return uid
+            return email
         }
-    }
-    
-    // 신규 유저 만들기
-    func createUserInfoFromAuth(uid:String, userData: Dictionary<String, String>) {
-        userRef.child(uid).updateChildValues(userData)
     }
 }

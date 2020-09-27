@@ -32,16 +32,16 @@ class RegisterViewModel: BaseViewModel {
                 metadata.contentType = "image/jpeg"
     
                 let uid = user?.user.uid
-                let imageRef = Storage.storage().reference().child("userImages").child(uid!)
-                let userRef = Database.database().reference().child("user").child(uid!)
+                let imageRef = FirebaseService.instance.userImageRef.child(uid!)
+                let userRef = FirebaseService.instance.userRef.child(uid!)
                     
                 imageRef.putData(userImage!, metadata: metadata, completion: { (data, error) in
                     imageRef.downloadURL(completion: { (url, error) in
                         userRef.child(uid!).setValue(["name":self.name.value, "profileImageUrl":url?.absoluteString])
                     })
                 })
-                
                 self.isSuccess.accept(true)
+                
             } else {
                 self.isError.accept(true)
             }

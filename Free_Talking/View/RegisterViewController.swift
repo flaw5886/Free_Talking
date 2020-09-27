@@ -24,6 +24,7 @@ class RegisterViewController: BaseViewController {
         imageView.layer.masksToBounds = true
         addImageButton.layer.cornerRadius = 8
         registerButton.layer.cornerRadius = 8
+        viewModel.setImage(image: self.imageView.image!)
     }
     
     override func configureCallback() {

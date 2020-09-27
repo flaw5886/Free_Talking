@@ -366,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eg5-WT-8Eb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-671" y="1006"/>
+            <point key="canvasLocation" x="-1034" y="1019"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7eD-89-xfC">
@@ -377,13 +377,13 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B9l-2E-bll">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="labelColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="OY9-6X-JoE" kind="relationship" relationship="viewControllers" id="E25-vM-E7j"/>
                         <segue destination="eyy-Wt-C3J" kind="relationship" relationship="viewControllers" id="7MT-yk-0YR"/>
                         <segue destination="huk-fs-Puy" kind="relationship" relationship="viewControllers" id="qmj-xP-fhL"/>
+                        <segue destination="FEM-1w-t9R" kind="relationship" relationship="viewControllers" id="1nG-rJ-WnJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOA-Jp-uMF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -469,9 +469,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeU-Yq-Yg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="49" y="1006"/>
+            <point key="canvasLocation" x="-314" y="1019"/>
         </scene>
-        <!--전체-->
+        <!--알림-->
         <scene sceneID="XQb-sb-svC">
             <objects>
                 <viewController id="huk-fs-Puy" sceneMemberID="viewController">
@@ -482,7 +482,7 @@
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bkL-LD-hXB">
                                 <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                                 <items>
-                                    <navigationItem title="전체" id="erj-8b-QNq"/>
+                                    <navigationItem title="알림" id="erj-8b-QNq"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -494,11 +494,71 @@
                             <constraint firstItem="bkL-LD-hXB" firstAttribute="leading" secondItem="gw2-CQ-dWB" secondAttribute="leading" id="eZh-WM-S2w"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="전체" image="text.justify" catalog="system" id="qoY-xE-gYC"/>
+                    <tabBarItem key="tabBarItem" title="알림" image="bell" catalog="system" id="qoY-xE-gYC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83j-1t-7zx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769" y="1006"/>
+            <point key="canvasLocation" x="406" y="1019"/>
+        </scene>
+        <!--내 정보-->
+        <scene sceneID="j2l-LN-8UP">
+            <objects>
+                <viewController id="FEM-1w-t9R" customClass="ProfileViewController" customModule="Free_Talking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3eI-R7-Bsr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwl-HJ-dAA">
+                                <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                                <items>
+                                    <navigationItem title="내 정보" id="1MK-RN-1MC"/>
+                                </items>
+                            </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C6c-Vc-MbW">
+                                <rect key="frame" x="137.66666666666666" y="160" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="24z-aj-yKO"/>
+                                    <constraint firstAttribute="height" constant="100" id="QHO-Qn-6qG"/>
+                                    <constraint firstAttribute="width" secondItem="C6c-Vc-MbW" secondAttribute="height" multiplier="1:1" id="pC9-gF-O41"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="박진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vQ-Hw-fu5">
+                                <rect key="frame" x="172" y="280" width="31.333333333333343" height="21.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRe-wE-Gbn">
+                                <rect key="frame" x="167.66666666666666" y="311.66666666666669" width="39.666666666666657" height="19.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="x9t-tF-oXe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CRe-wE-Gbn" firstAttribute="centerX" secondItem="3eI-R7-Bsr" secondAttribute="centerX" id="4OJ-0O-vjK"/>
+                            <constraint firstItem="vwl-HJ-dAA" firstAttribute="leading" secondItem="x9t-tF-oXe" secondAttribute="leading" id="4xO-YW-l4q"/>
+                            <constraint firstItem="CRe-wE-Gbn" firstAttribute="top" secondItem="8vQ-Hw-fu5" secondAttribute="bottom" constant="10" id="DWn-IB-P6Y"/>
+                            <constraint firstItem="vwl-HJ-dAA" firstAttribute="top" secondItem="x9t-tF-oXe" secondAttribute="top" id="Dkl-e1-wFO"/>
+                            <constraint firstItem="vwl-HJ-dAA" firstAttribute="trailing" secondItem="x9t-tF-oXe" secondAttribute="trailing" id="M8V-Aj-x7B"/>
+                            <constraint firstItem="C6c-Vc-MbW" firstAttribute="centerX" secondItem="3eI-R7-Bsr" secondAttribute="centerX" id="Oj0-Za-6Xx"/>
+                            <constraint firstItem="8vQ-Hw-fu5" firstAttribute="centerX" secondItem="3eI-R7-Bsr" secondAttribute="centerX" id="Uy0-4D-rEw"/>
+                            <constraint firstItem="8vQ-Hw-fu5" firstAttribute="top" secondItem="C6c-Vc-MbW" secondAttribute="bottom" constant="20" id="h9T-T4-ug6"/>
+                            <constraint firstItem="C6c-Vc-MbW" firstAttribute="top" secondItem="vwl-HJ-dAA" secondAttribute="bottom" constant="20" id="j8s-iV-KEB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="내 정보" image="person" catalog="system" id="Yrb-eB-TnP"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="CRe-wE-Gbn" id="rNX-M3-LfD"/>
+                        <outlet property="imageView" destination="C6c-Vc-MbW" id="Q8T-dX-ILl"/>
+                        <outlet property="nameLabel" destination="8vQ-Hw-fu5" id="8RA-xs-RK7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJS-nh-ct5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1130" y="1019"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -506,13 +566,14 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
+        <image name="bell" catalog="system" width="128" height="124"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="lock.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="rectangle.stack.person.crop.fill" catalog="system" width="128" height="122"/>
         <image name="text.bubble.rtl" catalog="system" width="128" height="110"/>
-        <image name="text.justify" catalog="system" width="128" height="100"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

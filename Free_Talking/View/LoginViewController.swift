@@ -18,7 +18,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     override func initUI() {
-        loginButton.layer.cornerRadius = 5
+        loginButton.layer.cornerRadius = 8
     }
     
     @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) { }

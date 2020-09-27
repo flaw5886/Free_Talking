@@ -12,7 +12,7 @@ class UserCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    func update(info: User) {
+    /* func update(info: User) {
         nameLabel.text = info.username
-    }
+    } */
 }

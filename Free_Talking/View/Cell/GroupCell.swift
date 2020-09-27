@@ -12,8 +12,8 @@ class GroupCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    func update(info: Group) {
+    /* func update(info: Group) {
         titleLabel.text = info.name
-    }
+    } */
 }
 

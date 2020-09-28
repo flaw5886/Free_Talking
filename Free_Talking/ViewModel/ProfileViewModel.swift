@@ -14,11 +14,11 @@ import FirebaseStorage
 
 class ProfileViewModel : BaseViewModel {
     
+    let firebaseService = FirebaseService.instance
+    
     let email = BehaviorRelay(value: "")
     let name = BehaviorRelay(value: "")
     let profileImage = BehaviorRelay<UIImage?>(value: nil)
-    
-    let firebaseService = FirebaseService.instance
     
     func getUserInfo() {
         let uid = firebaseService.currentUserUid
@@ -27,6 +27,10 @@ class ProfileViewModel : BaseViewModel {
             
             let values = snapshot.value
             self.setUserInfo(values: values as! [String: [String:Any]])
+            
+            self.isSuccess.accept(true)
+            self.isLoading.accept(true)
+            
         }) { (error) in
           print(error.localizedDescription)
       }
@@ -42,14 +46,15 @@ class ProfileViewModel : BaseViewModel {
             profileImageUrl = index.value["profileImageUrl"] as? String ?? ""
         }
         
-        let url = URL(string: profileImageUrl)
-        let data = try? Data(contentsOf: url!)
-        let image = UIImage(data: data!)
-        
+        DispatchQueue.global().async {
+            let url = URL(string: profileImageUrl)
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                let image = UIImage(data: data!)
+                self.profileImage.accept(image)
+            }
+        }
         self.email.accept(email)
         self.name.accept(name)
-        self.profileImage.accept(image)
-        
-        self.isSuccess.accept(true)
     }
 }

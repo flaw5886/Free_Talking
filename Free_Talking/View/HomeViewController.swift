@@ -15,14 +15,21 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func initUI() {
-        
+        viewModel.getAllUser()
     }
-    
     
     override func configureCallback() {
         viewModel.isSuccess.bind { value in
             if value {
                 self.collectionView.reloadData()
+            }
+        }.disposed(by: disposeBag)
+        
+        viewModel.isLoading.bind { value in
+            if value {
+                self.stopIndicatingActivity()
+            } else {
+                self.startIndicatingActivity()
             }
         }.disposed(by: disposeBag)
     }
@@ -35,7 +42,7 @@ class HomeViewController: BaseViewController {
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.userList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -45,7 +52,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return UICollectionViewCell()
         }
         cell.layer.cornerRadius = 8
-        // cell.update(info: )
+        cell.update(info: viewModel.userList[indexPath.item])
         
         return cell
     }

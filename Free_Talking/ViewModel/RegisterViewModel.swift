@@ -14,37 +14,35 @@ import FirebaseStorage
 
 class RegisterViewModel: BaseViewModel {
     
+    let firebaseService = FirebaseService.instance
+    
     let email = BehaviorRelay(value: "")
     let pw = BehaviorRelay(value: "")
     let name = BehaviorRelay(value: "")
-    var image: UIImage? = nil
-    
-    func setImage(image: UIImage) {
-        self.image = image
-    }
+    let profileImage = BehaviorRelay<UIImage?>(value: nil)
     
     func register() {
         Auth.auth().createUser(withEmail: email.value, password: pw.value) { (user, error) in
-            if user != nil {
-                let userImage = self.image?.jpegData(compressionQuality: 0.1)
+            let uid = user?.user.uid
+            let imageRef = self.firebaseService.userImageRef.child(uid!)
+            let userRef = self.firebaseService.userRef.child(uid!)
+            
+            let userImage = self.profileImage.value!.jpegData(compressionQuality: 0.1)
+            
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
                 
-                let metadata = StorageMetadata()
-                metadata.contentType = "image/jpeg"
-    
-                let uid = user?.user.uid
-                let imageRef = FirebaseService.instance.userImageRef.child(uid!)
-                let userRef = FirebaseService.instance.userRef.child(uid!)
+            imageRef.putData(userImage!, metadata: metadata, completion: { (data, error) in
+                imageRef.downloadURL(completion: { (url, error) in
                     
-                imageRef.putData(userImage!, metadata: metadata, completion: { (data, error) in
-                    imageRef.downloadURL(completion: { (url, error) in
-                        userRef.child(uid!).setValue(["name":self.name.value, "profileImageUrl":url?.absoluteString])
+                    let value = ["name":self.name.value, "profileImageUrl":url?.absoluteString]
+                    userRef.child(uid!).setValue(value, withCompletionBlock: { (error, ref) in
+                        if error == nil {
+                            self.isSuccess.accept(true)
+                        }
                     })
                 })
-                self.isSuccess.accept(true)
-                
-            } else {
-                self.isError.accept(true)
-            }
+            })
         }
     }
 }

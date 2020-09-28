@@ -12,7 +12,7 @@ class RegisterViewController: BaseViewController {
     
     let viewModel = RegisterViewModel()
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var pwField: UITextField!
@@ -20,11 +20,9 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     override func initUI() {
-        imageView.layer.cornerRadius = imageView.frame.size.height/2
-        imageView.layer.masksToBounds = true
+        viewModel.profileImage.accept(imageView.image)
         addImageButton.layer.cornerRadius = 8
         registerButton.layer.cornerRadius = 8
-        viewModel.setImage(image: self.imageView.image!)
     }
     
     override func configureCallback() {
@@ -43,6 +41,10 @@ class RegisterViewController: BaseViewController {
     }
     
     override func bindViewModel() {
+        viewModel.profileImage
+            .bind(to: imageView.rx.image)
+            .disposed(by: disposeBag)
+        
         emailField.rx.text.orEmpty
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
@@ -56,7 +58,7 @@ class RegisterViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         addImageButton.rx.tap
-            .bind(onNext: self.imagePicker)
+            .bind(onNext: imagePicker)
             .disposed(by: disposeBag)
         
         registerButton.rx.tap
@@ -77,8 +79,7 @@ extension RegisterViewController: UINavigationControllerDelegate, UIImagePickerC
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        imageView.image = info[.originalImage] as? UIImage
-        viewModel.setImage(image: self.imageView.image!)
+        viewModel.profileImage.accept(info[.originalImage] as? UIImage)
         dismiss(animated: true, completion: nil)
     }
 }

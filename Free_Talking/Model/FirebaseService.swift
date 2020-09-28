@@ -23,7 +23,7 @@ class FirebaseService {
     // 사용자 사진
     let userImageRef = storageRef.child("userImages")
     
-    // 현재 유저
+    // 현재 유저 id
     var currentUserUid: String? {
             get {
                 guard let uid = Auth.auth().currentUser?.uid else {
@@ -33,6 +33,7 @@ class FirebaseService {
             }
         }
     
+    // 현재 유저 email
     var currentUserEmail: String? {
         get {
             guard let email = Auth.auth().currentUser?.email else {

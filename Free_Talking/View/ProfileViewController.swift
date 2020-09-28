@@ -14,20 +14,20 @@ class ProfileViewController: BaseViewController {
     
     let viewModel = ProfileViewModel()
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
     override func initUI() {
-        imageView.layer.cornerRadius = imageView.frame.size.height/2
-        imageView.layer.masksToBounds = true
         viewModel.getUserInfo()
     }
     
     override func configureCallback() {
-        viewModel.isSuccess.bind { value in
+        viewModel.isLoading.bind { value in
             if value {
-                
+                self.stopIndicatingActivity()
+            } else {
+                self.startIndicatingActivity()
             }
         }.disposed(by: disposeBag)
     }

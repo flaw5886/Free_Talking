@@ -31,6 +31,8 @@
 		8DD00A932501CE9A003468C8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD00A922501CE9A003468C8 /* LoginViewModel.swift */; };
 		8DEE32912501EAA400FBD592 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEE328F2501EAA400FBD592 /* BaseViewController.swift */; };
 		8DEE32922501EAA400FBD592 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEE32902501EAA400FBD592 /* BaseViewModel.swift */; };
+		8DF56D812521598000CF774F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF56D802521598000CF774F /* User.swift */; };
+		8DF56D872521616E00CF774F /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF56D862521616E00CF774F /* ProfileImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		8DD00A922501CE9A003468C8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8DEE328F2501EAA400FBD592 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8DEE32902501EAA400FBD592 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		8DF56D802521598000CF774F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8DF56D862521616E00CF774F /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				8DD00A912501CE85003468C8 /* ViewModel */,
 				8D65D6E825118AE600B133E0 /* Model */,
 				8DC0D1992503EA4C009CB3DD /* Extension */,
+				8DF56D852521615900CF774F /* CustomUI */,
 				8D4233AA2501C7A400D96C36 /* AppDelegate.swift */,
 				8D4233AC2501C7A400D96C36 /* SceneDelegate.swift */,
 				8D4233B32501C7A500D96C36 /* Assets.xcassets */,
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				8D65D6E925118B1900B133E0 /* FirebaseService.swift */,
+				8DF56D802521598000CF774F /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +193,14 @@
 				8DEE32902501EAA400FBD592 /* BaseViewModel.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		8DF56D852521615900CF774F /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				8DF56D862521616E00CF774F /* ProfileImage.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 		E700AD19CC727DF2E9F43A12 /* Pods */ = {
@@ -322,6 +336,7 @@
 				8D4233AB2501C7A400D96C36 /* AppDelegate.swift in Sources */,
 				8D65D6EA25118B1900B133E0 /* FirebaseService.swift in Sources */,
 				8DC0D19C2503EA84009CB3DD /* UIViewControllerExtension.swift in Sources */,
+				8DF56D812521598000CF774F /* User.swift in Sources */,
 				8D09F649251AC39100E1717D /* RegisterViewModel.swift in Sources */,
 				8D65D6F62511946C00B133E0 /* ChatListViewController.swift in Sources */,
 				8D65D6F82511947900B133E0 /* ChatListViewModel.swift in Sources */,
@@ -329,6 +344,7 @@
 				8D4233AD2501C7A400D96C36 /* SceneDelegate.swift in Sources */,
 				8D65D6FD251199F000B133E0 /* UserCell.swift in Sources */,
 				8DEE32922501EAA400FBD592 /* BaseViewModel.swift in Sources */,
+				8DF56D872521616E00CF774F /* ProfileImage.swift in Sources */,
 				8D2C0043251B3D4B0040086C /* ProfileViewModel.swift in Sources */,
 				8D2C0040251B3D100040086C /* ProfileViewController.swift in Sources */,
 				8D65D6F22511921900B133E0 /* HomeViewController.swift in Sources */,
@@ -408,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -462,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

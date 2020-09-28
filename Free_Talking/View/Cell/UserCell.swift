@@ -10,9 +10,11 @@ import UIKit
 
 class UserCell: UICollectionViewCell {
     
+    @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var nameLabel: UILabel!
     
-    /* func update(info: User) {
-        nameLabel.text = info.username
-    } */
+    func update(info: User) {
+        nameLabel.text = info.name
+        imageView.image = info.getImage()
+    }
 }

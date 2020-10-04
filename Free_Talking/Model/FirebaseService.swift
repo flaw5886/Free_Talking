@@ -20,6 +20,9 @@ class FirebaseService {
     // 사용자
     let userRef = dataBaseRef.child("user")
     
+    // 채팅방
+    let chatRoom = dataBaseRef.child("chatRooms")
+    
     // 사용자 사진
     let userImageRef = storageRef.child("userImages")
     

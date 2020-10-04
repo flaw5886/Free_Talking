@@ -35,8 +35,8 @@ class RegisterViewModel: BaseViewModel {
             imageRef.putData(userImage!, metadata: metadata, completion: { (data, error) in
                 imageRef.downloadURL(completion: { (url, error) in
                     
-                    let value = ["name":self.name.value, "profileImageUrl":url?.absoluteString]
-                    userRef.child(uid!).setValue(value, withCompletionBlock: { (error, ref) in
+                    let value = ["name":self.name.value, "profileImageUrl":url?.absoluteString, "uid": uid]
+                    userRef.setValue(value, withCompletionBlock: { (error, ref) in
                         if error == nil {
                             self.isSuccess.accept(true)
                         }

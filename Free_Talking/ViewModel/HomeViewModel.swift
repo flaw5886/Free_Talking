@@ -25,7 +25,7 @@ class HomeViewModel : BaseViewModel {
         
             for child in snapshot.children {
                 let item = child as! DataSnapshot
-                let values = item.value as! [String: [String:Any]]
+                let values = item.value as! [String:Any]
                 self.setUserList(values: values)
             }
             
@@ -34,15 +34,17 @@ class HomeViewModel : BaseViewModel {
         })
     }
     
-    func setUserList(values: [String : [String : Any]]) {
+    func setUserList(values: [String : Any]) {
         
-        for index in values {
-            let name = index.value["name"] as? String ?? ""
-            let profileImageUrl = index.value["profileImageUrl"] as? String ?? ""
-            
+        let name = values["name"] as? String ?? ""
+        let profileImageUrl = values["profileImageUrl"] as? String ?? ""
+        let uid = values["uid"] as? String ?? ""
+        
+        if firebaseService.currentUserUid != uid {
             let user = User()
             user.name = name
             user.profileImageUrl = profileImageUrl
+            user.uid = uid
             
             self.userList.append(user)
         }

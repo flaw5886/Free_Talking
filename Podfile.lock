@@ -89,6 +89,7 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - ObjectMapper (3.5.3)
   - PromisesObjC (1.2.10)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
@@ -104,6 +105,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - Moya/RxSwift (~> 14.0)
+  - ObjectMapper (~> 3.5)
   - RxCocoa
 
 SPEC REPOS:
@@ -124,6 +126,7 @@ SPEC REPOS:
     - leveldb-library
     - Moya
     - nanopb
+    - ObjectMapper
     - PromisesObjC
     - RxCocoa
     - RxRelay
@@ -146,11 +149,12 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 2302caa9d6ec97d8193a128155a34ad2ce2e8fbf
+PODFILE CHECKSUM: 9ce7b24f4517401b6bef8ac8e5610544baa30650
 
 COCOAPODS: 1.9.3

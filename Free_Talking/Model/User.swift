@@ -6,12 +6,12 @@
 //  Copyright © 2020 com.parkjin.free_talking. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class User: NSObject {
+class User {
     var name: String?
     var profileImageUrl: String?
+    var uid: String?
 }
 
 extension User {

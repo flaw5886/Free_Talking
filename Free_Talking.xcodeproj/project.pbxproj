@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0480889C6E104AC2003AC36D /* Pods_Free_Talking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2703BC44BAB8F6F169DFF1DC /* Pods_Free_Talking.framework */; };
 		8D09F649251AC39100E1717D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09F648251AC39100E1717D /* RegisterViewModel.swift */; };
+		8D1DE6C92521F938000FE641 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE6C82521F938000FE641 /* Chat.swift */; };
+		8D1DE6CC2521F9F3000FE641 /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE6CB2521F9F3000FE641 /* ChatDetailViewController.swift */; };
+		8D1DE6CF2521FA28000FE641 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE6CE2521FA28000FE641 /* ChatDetailViewModel.swift */; };
 		8D2C0040251B3D100040086C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C003F251B3D100040086C /* ProfileViewController.swift */; };
 		8D2C0043251B3D4B0040086C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C0042251B3D4B0040086C /* ProfileViewModel.swift */; };
 		8D31E64D2518536D00852288 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D31E64C2518536D00852288 /* RegisterViewController.swift */; };
@@ -33,6 +36,7 @@
 		8DEE32922501EAA400FBD592 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEE32902501EAA400FBD592 /* BaseViewModel.swift */; };
 		8DF56D812521598000CF774F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF56D802521598000CF774F /* User.swift */; };
 		8DF56D872521616E00CF774F /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF56D862521616E00CF774F /* ProfileImage.swift */; };
+		8DFE048B2522B62700BD01AB /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFE048A2522B62700BD01AB /* ChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,9 @@
 		2703BC44BAB8F6F169DFF1DC /* Pods_Free_Talking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Free_Talking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB5D466F13774BF695C3335 /* Pods-Free_Talking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Free_Talking.release.xcconfig"; path = "Target Support Files/Pods-Free_Talking/Pods-Free_Talking.release.xcconfig"; sourceTree = "<group>"; };
 		8D09F648251AC39100E1717D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		8D1DE6C82521F938000FE641 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		8D1DE6CB2521F9F3000FE641 /* ChatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
+		8D1DE6CE2521FA28000FE641 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		8D2C003F251B3D100040086C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8D2C0042251B3D4B0040086C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8D31E64C2518536D00852288 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +73,7 @@
 		8DEE32902501EAA400FBD592 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		8DF56D802521598000CF774F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8DF56D862521616E00CF774F /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		8DFE048A2522B62700BD01AB /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,7 @@
 			children = (
 				8D65D6E925118B1900B133E0 /* FirebaseService.swift */,
 				8DF56D802521598000CF774F /* User.swift */,
+				8D1DE6C82521F938000FE641 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,8 +146,9 @@
 		8D65D6FB251199E200B133E0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				8D65D6F92511969C00B133E0 /* GroupCell.swift */,
 				8D65D6FC251199F000B133E0 /* UserCell.swift */,
+				8DFE048A2522B62700BD01AB /* ChatCell.swift */,
+				8D65D6F92511969C00B133E0 /* GroupCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -159,6 +169,7 @@
 				8D4233AE2501C7A400D96C36 /* LoginViewController.swift */,
 				8D65D6F12511921900B133E0 /* HomeViewController.swift */,
 				8D65D6F52511946C00B133E0 /* ChatListViewController.swift */,
+				8D1DE6CB2521F9F3000FE641 /* ChatDetailViewController.swift */,
 				8D31E64C2518536D00852288 /* RegisterViewController.swift */,
 				8D2C003F251B3D100040086C /* ProfileViewController.swift */,
 			);
@@ -171,6 +182,7 @@
 				8DD00A922501CE9A003468C8 /* LoginViewModel.swift */,
 				8D65D6F32511929100B133E0 /* HomeViewModel.swift */,
 				8D65D6F72511947900B133E0 /* ChatListViewModel.swift */,
+				8D1DE6CE2521FA28000FE641 /* ChatDetailViewModel.swift */,
 				8D09F648251AC39100E1717D /* RegisterViewModel.swift */,
 				8D2C0042251B3D4B0040086C /* ProfileViewModel.swift */,
 			);
@@ -329,7 +341,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DEE32912501EAA400FBD592 /* BaseViewController.swift in Sources */,
+				8D1DE6CC2521F9F3000FE641 /* ChatDetailViewController.swift in Sources */,
 				8DD00A932501CE9A003468C8 /* LoginViewModel.swift in Sources */,
+				8DFE048B2522B62700BD01AB /* ChatCell.swift in Sources */,
+				8D1DE6CF2521FA28000FE641 /* ChatDetailViewModel.swift in Sources */,
 				8D65D6FA2511969C00B133E0 /* GroupCell.swift in Sources */,
 				8D31E64D2518536D00852288 /* RegisterViewController.swift in Sources */,
 				8D4233AF2501C7A400D96C36 /* LoginViewController.swift in Sources */,
@@ -345,6 +360,7 @@
 				8D65D6FD251199F000B133E0 /* UserCell.swift in Sources */,
 				8DEE32922501EAA400FBD592 /* BaseViewModel.swift in Sources */,
 				8DF56D872521616E00CF774F /* ProfileImage.swift in Sources */,
+				8D1DE6C92521F938000FE641 /* Chat.swift in Sources */,
 				8D2C0043251B3D4B0040086C /* ProfileViewModel.swift in Sources */,
 				8D2C0040251B3D100040086C /* ProfileViewController.swift in Sources */,
 				8D65D6F22511921900B133E0 /* HomeViewController.swift in Sources */,

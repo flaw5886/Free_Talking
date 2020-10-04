@@ -26,7 +26,7 @@ class ProfileViewModel : BaseViewModel {
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
             let values = snapshot.value
-            self.setUserInfo(values: values as! [String: [String:Any]])
+            self.setUserInfo(values: values as! [String:Any])
             
             self.isSuccess.accept(true)
             self.isLoading.accept(true)
@@ -36,15 +36,10 @@ class ProfileViewModel : BaseViewModel {
       }
     }
     
-    func setUserInfo(values: [String : [String : Any]]) {
+    func setUserInfo(values: [String : Any]) {
         let email = self.firebaseService.currentUserEmail!
-        var name = ""
-        var profileImageUrl = ""
-        
-        for index in values {
-            name = index.value["name"] as? String ?? ""
-            profileImageUrl = index.value["profileImageUrl"] as? String ?? ""
-        }
+        let name = values["name"] as? String ?? ""
+        let profileImageUrl = values["profileImageUrl"] as? String ?? ""
         
         DispatchQueue.global().async {
             let url = URL(string: profileImageUrl)

@@ -12,6 +12,7 @@ target 'Free_Talking' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
+	pod 'ObjectMapper', '~> 3.5'
 
   # Pods for Free_Talking
 

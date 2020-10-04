@@ -37,6 +37,16 @@ class HomeViewController: BaseViewController {
     override func bindViewModel() {
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showChat" {
+            let vc = segue.destination as? ChatDetailViewController
+            
+            if let index = sender as? Int {
+                vc?.viewModel.destinationUid = self.viewModel.userList[index].uid
+            }
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -58,6 +68,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "showChat", sender: indexPath.item)
     }
 }

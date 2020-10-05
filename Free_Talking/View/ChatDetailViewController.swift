@@ -26,6 +26,12 @@ class ChatDetailViewController: BaseViewController {
                 self.collectionView.reloadData()
             }
         }.disposed(by: disposeBag)
+        
+        viewModel.isReset.bind { value in
+            if value {
+                self.chatField.text = ""
+            }
+        }.disposed(by: disposeBag)
     }
     
     override func bindViewModel() {
@@ -51,14 +57,29 @@ extension ChatDetailViewController : UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatCell", for: indexPath)
-            as? ChatCell else {
-            return UICollectionViewCell()
+        if viewModel.comments[indexPath.item].uid == viewModel.firebaseService.currentUserUid {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyChatCell", for: indexPath)
+                as? MyChatCell else {
+                return UICollectionViewCell()
+            }
+            cell.layer.cornerRadius = 8
+            cell.update(info: viewModel.comments[indexPath.item])
+            
+            return cell
+        } else {
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DestinationChatCell", for: indexPath)
+                as? DestinationChatCell else {
+                return UICollectionViewCell()
+            }
+            cell.layer.cornerRadius = 8
+            if viewModel.user.name != nil {
+                cell.update(userInfo: viewModel.user, commentInfo: viewModel.comments[indexPath.item])
+            }
+            
+            return cell
         }
-        cell.layer.cornerRadius = 8
-        cell.update(info: viewModel.comments[indexPath.item])
         
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

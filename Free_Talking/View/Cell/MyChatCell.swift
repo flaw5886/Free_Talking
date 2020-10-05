@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatCell: UICollectionViewCell {
+class MyChatCell: UICollectionViewCell {
     
     @IBOutlet weak var messageLabel: UILabel!
     

@@ -391,34 +391,78 @@
                                 <rect key="frame" x="0.0" y="160" width="375" height="495"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2aJ-hJ-DmS">
-                                    <size key="itemSize" width="350" height="40"/>
+                                    <size key="itemSize" width="350" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChatCell" id="rDT-Iz-5hO" customClass="ChatCell" customModule="Free_Talking" customModuleProvider="target">
-                                        <rect key="frame" x="12.666666666666666" y="0.0" width="350" height="40"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DestinationChatCell" id="rDT-Iz-5hO" customClass="DestinationChatCell" customModule="Free_Talking" customModuleProvider="target">
+                                        <rect key="frame" x="12.666666666666666" y="0.0" width="350" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JFl-gm-QNC">
-                                            <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDq-WN-ERa">
-                                                    <rect key="frame" x="20" y="0.0" width="42" height="40"/>
+                                                    <rect key="frame" x="50" y="0.0" width="42" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c7a-qi-gL4" customClass="ProfileImage" customModule="Free_Talking" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="5" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="c7a-qi-gL4" secondAttribute="height" multiplier="1:1" id="pjj-6t-w9g"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="박진" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLo-oN-qxL">
+                                                    <rect key="frame" x="10" y="35" width="30" height="9.6666666666666643"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="c7a-qi-gL4" firstAttribute="leading" secondItem="JFl-gm-QNC" secondAttribute="leading" constant="10" id="1bO-zH-iAc"/>
+                                                <constraint firstItem="lDq-WN-ERa" firstAttribute="leading" secondItem="c7a-qi-gL4" secondAttribute="trailing" constant="10" id="7Th-L3-j7E"/>
+                                                <constraint firstItem="c7a-qi-gL4" firstAttribute="top" secondItem="JFl-gm-QNC" secondAttribute="top" constant="5" id="Qt0-Gm-08r"/>
+                                                <constraint firstItem="cLo-oN-qxL" firstAttribute="trailing" secondItem="c7a-qi-gL4" secondAttribute="trailing" id="RFl-N3-BRM"/>
+                                                <constraint firstAttribute="bottom" secondItem="c7a-qi-gL4" secondAttribute="bottom" constant="15" id="TIn-Td-Nt9"/>
+                                                <constraint firstAttribute="bottom" secondItem="lDq-WN-ERa" secondAttribute="bottom" id="ZCo-h2-S0C"/>
+                                                <constraint firstItem="cLo-oN-qxL" firstAttribute="leading" secondItem="c7a-qi-gL4" secondAttribute="leading" id="g3t-I4-Z1f"/>
+                                                <constraint firstItem="lDq-WN-ERa" firstAttribute="top" secondItem="JFl-gm-QNC" secondAttribute="top" id="hfA-zX-ujX"/>
+                                                <constraint firstItem="cLo-oN-qxL" firstAttribute="top" secondItem="c7a-qi-gL4" secondAttribute="bottom" id="mEO-UM-EJ1"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="lDq-WN-ERa" id="eDU-S4-aZu"/>
+                                            <outlet property="nameLabel" destination="cLo-oN-qxL" id="ley-I7-mrW"/>
+                                            <outlet property="profileImage" destination="c7a-qi-gL4" id="Tc7-DK-hdj"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyChatCell" id="4VF-g0-0VA" customClass="MyChatCell" customModule="Free_Talking" customModuleProvider="target">
+                                        <rect key="frame" x="12.666666666666666" y="60" width="350" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FlN-yp-P4m">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRV-sj-CwA">
+                                                    <rect key="frame" x="288" y="0.0" width="42" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="lDq-WN-ERa" secondAttribute="bottom" id="ZCo-h2-S0C"/>
-                                                <constraint firstItem="lDq-WN-ERa" firstAttribute="top" secondItem="JFl-gm-QNC" secondAttribute="top" id="hfA-zX-ujX"/>
-                                                <constraint firstItem="lDq-WN-ERa" firstAttribute="leading" secondItem="JFl-gm-QNC" secondAttribute="leading" constant="20" id="pwe-3h-qZY"/>
+                                                <constraint firstAttribute="bottom" secondItem="SRV-sj-CwA" secondAttribute="bottom" id="BRA-7a-NTp"/>
+                                                <constraint firstAttribute="trailing" secondItem="SRV-sj-CwA" secondAttribute="trailing" constant="20" id="Rlg-Og-LHd"/>
+                                                <constraint firstItem="SRV-sj-CwA" firstAttribute="top" secondItem="FlN-yp-P4m" secondAttribute="top" id="WeU-gQ-fJL"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="messageLabel" destination="lDq-WN-ERa" id="eDU-S4-aZu"/>
+                                            <outlet property="messageLabel" destination="SRV-sj-CwA" id="i9g-KD-9fx"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

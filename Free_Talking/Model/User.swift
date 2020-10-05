@@ -10,15 +10,14 @@ import UIKit
 
 class User {
     var name: String?
-    var profileImageUrl: String?
+    var image: UIImage?
     var uid: String?
 }
 
-extension User {
+extension String {
     
-    // url을 이미지로 변환
     func getImage() -> UIImage {
-        let url = URL(string: profileImageUrl ?? "")
+        let url = URL(string: self)
         let data = try? Data(contentsOf: url!)
         return UIImage(data: data!)!
     }

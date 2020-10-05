@@ -26,8 +26,8 @@
 		8D65D6F42511929100B133E0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F32511929100B133E0 /* HomeViewModel.swift */; };
 		8D65D6F62511946C00B133E0 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F52511946C00B133E0 /* ChatListViewController.swift */; };
 		8D65D6F82511947900B133E0 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F72511947900B133E0 /* ChatListViewModel.swift */; };
-		8D65D6FA2511969C00B133E0 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F92511969C00B133E0 /* GroupCell.swift */; };
 		8D65D6FD251199F000B133E0 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6FC251199F000B133E0 /* UserCell.swift */; };
+		8D8FE4BA252AA675003199F8 /* DestinationChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8FE4B9252AA675003199F8 /* DestinationChatCell.swift */; };
 		8DC0D19C2503EA84009CB3DD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0D19A2503EA84009CB3DD /* UIViewControllerExtension.swift */; };
 		8DC0D19D2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0D19B2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift */; };
 		8DD00A8F2501CB4E003468C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD00A8E2501CB4E003468C8 /* GoogleService-Info.plist */; };
@@ -36,7 +36,7 @@
 		8DEE32922501EAA400FBD592 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEE32902501EAA400FBD592 /* BaseViewModel.swift */; };
 		8DF56D812521598000CF774F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF56D802521598000CF774F /* User.swift */; };
 		8DF56D872521616E00CF774F /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF56D862521616E00CF774F /* ProfileImage.swift */; };
-		8DFE048B2522B62700BD01AB /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFE048A2522B62700BD01AB /* ChatCell.swift */; };
+		8DFE048B2522B62700BD01AB /* MyChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFE048A2522B62700BD01AB /* MyChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,8 +63,8 @@
 		8D65D6F32511929100B133E0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8D65D6F52511946C00B133E0 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		8D65D6F72511947900B133E0 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
-		8D65D6F92511969C00B133E0 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		8D65D6FC251199F000B133E0 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		8D8FE4B9252AA675003199F8 /* DestinationChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationChatCell.swift; sourceTree = "<group>"; };
 		8DC0D19A2503EA84009CB3DD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8DC0D19B2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewExtension.swift; sourceTree = "<group>"; };
 		8DD00A8E2501CB4E003468C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		8DEE32902501EAA400FBD592 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		8DF56D802521598000CF774F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8DF56D862521616E00CF774F /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
-		8DFE048A2522B62700BD01AB /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		8DFE048A2522B62700BD01AB /* MyChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				8D65D6FC251199F000B133E0 /* UserCell.swift */,
-				8DFE048A2522B62700BD01AB /* ChatCell.swift */,
-				8D65D6F92511969C00B133E0 /* GroupCell.swift */,
+				8DFE048A2522B62700BD01AB /* MyChatCell.swift */,
+				8D8FE4B9252AA675003199F8 /* DestinationChatCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -343,11 +343,11 @@
 				8DEE32912501EAA400FBD592 /* BaseViewController.swift in Sources */,
 				8D1DE6CC2521F9F3000FE641 /* ChatDetailViewController.swift in Sources */,
 				8DD00A932501CE9A003468C8 /* LoginViewModel.swift in Sources */,
-				8DFE048B2522B62700BD01AB /* ChatCell.swift in Sources */,
+				8DFE048B2522B62700BD01AB /* MyChatCell.swift in Sources */,
 				8D1DE6CF2521FA28000FE641 /* ChatDetailViewModel.swift in Sources */,
-				8D65D6FA2511969C00B133E0 /* GroupCell.swift in Sources */,
 				8D31E64D2518536D00852288 /* RegisterViewController.swift in Sources */,
 				8D4233AF2501C7A400D96C36 /* LoginViewController.swift in Sources */,
+				8D8FE4BA252AA675003199F8 /* DestinationChatCell.swift in Sources */,
 				8D4233AB2501C7A400D96C36 /* AppDelegate.swift in Sources */,
 				8D65D6EA25118B1900B133E0 /* FirebaseService.swift in Sources */,
 				8DC0D19C2503EA84009CB3DD /* UIViewControllerExtension.swift in Sources */,

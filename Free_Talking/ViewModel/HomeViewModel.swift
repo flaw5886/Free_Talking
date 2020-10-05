@@ -43,7 +43,7 @@ class HomeViewModel : BaseViewModel {
         if firebaseService.currentUserUid != uid {
             let user = User()
             user.name = name
-            user.profileImageUrl = profileImageUrl
+            user.image = profileImageUrl.getImage()
             user.uid = uid
             
             self.userList.append(user)

@@ -18,8 +18,10 @@ class ChatDetailViewModel : BaseViewModel {
     
     let message = BehaviorRelay(value: "")
     let isEnabled = BehaviorRelay(value: true)
+    let isReset = BehaviorRelay(value: false)
     
     var comments: [Comment] = []
+    let user = User()
     
     var destinationUid: String?
     var chatRoomUid: String?
@@ -28,7 +30,7 @@ class ChatDetailViewModel : BaseViewModel {
         firebaseService.chatRoom
             .queryOrdered(byChild: "user/" + firebaseService.currentUserUid!)
             .queryEqual(toValue: true)
-            .observeSingleEvent(of: DataEventType.value, with: { (dataSnapshot) in
+            .observe(DataEventType.value, with: { (dataSnapshot) in
                 
                 for item in dataSnapshot.children.allObjects as! [DataSnapshot] {
                     
@@ -38,7 +40,7 @@ class ChatDetailViewModel : BaseViewModel {
                         if chat?.user[self.destinationUid!] == true {
                             self.chatRoomUid = item.key
                             self.isEnabled.accept(true)
-                            self.getComments()
+                            self.getDestinationInfo()
                         }
                     }
                 }
@@ -46,16 +48,17 @@ class ChatDetailViewModel : BaseViewModel {
     }
     
     func createRoom() {
-        let createRoomInfo: Dictionary<String,Any> = [
-            "user": [
-                firebaseService.currentUserUid!: true,
-                destinationUid!: true
-            ]
-        ]
         
-        if chatRoomUid == nil {
-            // 방 생성
+        if chatRoomUid == nil { // 방 생성
             self.isEnabled.accept(false)
+            
+            let createRoomInfo: Dictionary<String,Any> = [
+                "user": [
+                    firebaseService.currentUserUid!: true,
+                    destinationUid!: true
+                ]
+            ]
+            
             firebaseService.chatRoom.childByAutoId().setValue(createRoomInfo, withCompletionBlock: { (error, ref) in
                 if error == nil {
                     self.checkChatRoom()
@@ -69,8 +72,26 @@ class ChatDetailViewModel : BaseViewModel {
                 "message": self.message.value
             ]
             
-            firebaseService.chatRoom.child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+            firebaseService.chatRoom.child(chatRoomUid!).child("comments").childByAutoId()
+                .setValue(value, withCompletionBlock: { (error, ref) in
+                    self.isReset.accept(true)
+            })
         }
+    }
+    
+    func getDestinationInfo() {
+        firebaseService.userRef.child(destinationUid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let values = snapshot.value as! [String:Any]
+            
+            let name = values["name"] as? String ?? ""
+            let profileImageUrl = values["profileImageUrl"] as? String ?? ""
+            
+            self.user.name = name
+            self.user.image = profileImageUrl.getImage()
+            
+            self.getComments()
+        })
     }
     
     func getComments() {

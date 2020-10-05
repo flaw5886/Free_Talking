@@ -43,7 +43,9 @@ class HomeViewController: BaseViewController {
             let vc = segue.destination as? ChatDetailViewController
             
             if let index = sender as? Int {
-                vc?.viewModel.destinationUid = self.viewModel.userList[index].uid
+                let user = self.viewModel.userList[index]
+                vc?.viewModel.destinationUid = user.uid
+                vc?.viewModel.destinationName = user.name
             }
         }
     }

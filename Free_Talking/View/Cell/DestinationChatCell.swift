@@ -11,12 +11,10 @@ import UIKit
 class DestinationChatCell: UICollectionViewCell {
     
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: ProfileImage!
     
     func update(userInfo: User, commentInfo: Comment) {
         messageLabel.text = commentInfo.message
-        nameLabel.text = userInfo.name
         profileImage.image = userInfo.image
     }
 }

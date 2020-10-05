@@ -12,11 +12,14 @@ class ChatDetailViewController: BaseViewController {
     
     let viewModel = ChatDetailViewModel()
     
+    @IBOutlet weak var navigation: UINavigationItem!
+    
     @IBOutlet weak var chatField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func initUI() {
+        navigation.title = viewModel.destinationName
         viewModel.checkChatRoom()
     }
     
@@ -24,6 +27,7 @@ class ChatDetailViewController: BaseViewController {
         viewModel.isSuccess.bind { value in
             if value {
                 self.collectionView.reloadData()
+                self.scrollToBottomAnimated(animated: true)
             }
         }.disposed(by: disposeBag)
         
@@ -82,7 +86,22 @@ extension ChatDetailViewController : UICollectionViewDataSource, UICollectionVie
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
+    func scrollToBottomAnimated(animated: Bool) {
+            guard self.collectionView.numberOfSections > 0 else {
+                return
+            }
+
+            let items = self.collectionView.numberOfItems(inSection: 0)
+            if items == 0 { return }
+
+            let collectionViewContentHeight = self.collectionView.collectionViewLayout.collectionViewContentSize.height
+            let isContentTooSmall: Bool = (collectionViewContentHeight < self.collectionView.bounds.size.height)
+
+            if isContentTooSmall {
+                self.collectionView.scrollRectToVisible(CGRect(x: 0, y: collectionViewContentHeight - 1, width: 1, height: 1), animated: animated)
+                return
+            }
+
+            self.collectionView.scrollToItem(at: NSIndexPath(item: items - 1, section: 0) as IndexPath, at: .bottom, animated: animated)
+        }
 }

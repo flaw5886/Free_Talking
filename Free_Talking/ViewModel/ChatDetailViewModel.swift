@@ -24,6 +24,7 @@ class ChatDetailViewModel : BaseViewModel {
     let user = User()
     
     var destinationUid: String?
+    var destinationName: String?
     var chatRoomUid: String?
     
     func checkChatRoom() {

@@ -34,8 +34,7 @@ class RegisterViewController: BaseViewController {
         
         viewModel.isError.bind { value in
             if value {
-                self.present(self.standardAlert(title: "실패!", message: "회원가입 실패", actionTitle: "확인"),
-                             animated: true, completion: nil)
+                self.warningAlert(title: "실패!", message: "회원가입 실패")
             }
         }.disposed(by: disposeBag)
     }

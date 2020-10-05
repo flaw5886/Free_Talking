@@ -13,14 +13,27 @@ class ChatDetailViewController: BaseViewController {
     let viewModel = ChatDetailViewModel()
     
     @IBOutlet weak var navigation: UINavigationItem!
-    
     @IBOutlet weak var chatField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var restoreFrameValue: CGFloat = 0.0
+    
     override func initUI() {
         navigation.title = viewModel.destinationName
         viewModel.checkChatRoom()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(noti:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(noti:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func configureCallback() {
@@ -103,5 +116,26 @@ extension ChatDetailViewController : UICollectionViewDataSource, UICollectionVie
             }
 
             self.collectionView.scrollToItem(at: NSIndexPath(item: items - 1, section: 0) as IndexPath, at: .bottom, animated: animated)
+        }
+}
+
+extension ChatDetailViewController: UITextFieldDelegate {
+        
+        @objc func keyboardWillAppear(noti: NSNotification) {
+            if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                let keyboardRectangle = keyboardFrame.cgRectValue
+                let keyboardHeight = keyboardRectangle.height
+                self.view.frame.origin.y -= keyboardHeight
+            }
+        }
+        
+        @objc func keyboardWillDisappear(noti: NSNotification) {
+            if self.view.frame.origin.y != restoreFrameValue {
+                if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                    let keyboardRectangle = keyboardFrame.cgRectValue
+                    let keyboardHeight = keyboardRectangle.height
+                    self.view.frame.origin.y += keyboardHeight
+                }
+            }
         }
 }

@@ -40,8 +40,7 @@ class LoginViewController: BaseViewController {
         
         viewModel.isError.bind { value in
             if value {
-                self.present(self.standardAlert(title: "로그인 실패", message: "이메일 또는 비밀번호가 일치하지 않습니다", actionTitle: "확인"),
-                             animated: true, completion: nil)
+                self.warningAlert(title: "로그인 실패", message: "이메일 또는 비밀번호가 일치하지 않습니다")
             }
         }.disposed(by: disposeBag)
     }

@@ -525,6 +525,7 @@
                         <outlet property="collectionView" destination="tD2-bX-LPW" id="XGo-wn-vIs"/>
                         <outlet property="navigation" destination="AZI-oA-cJ3" id="0qV-Ym-i9Z"/>
                         <outlet property="sendButton" destination="eqj-V7-kFL" id="XzF-MA-8hL"/>
+                        <outlet property="viewConstraints" destination="AMX-O4-BsM" id="dkm-0p-6kD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ZT-K5-2Bt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

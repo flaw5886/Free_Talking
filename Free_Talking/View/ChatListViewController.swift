@@ -14,9 +14,7 @@ class ChatListViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    override func initUI() {
-        
-    }
+    override func initUI() { }
     
     override func configureCallback() {
         viewModel.isSuccess.bind { value in

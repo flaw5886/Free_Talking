@@ -8,11 +8,14 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class PeopleViewController: BaseViewController {
     
-    let viewModel = HomeViewModel()
+    let viewModel = PeopleViewModel()
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var imageView: ProfileImage!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var peopleCountLabel: UILabel!
     
     override func initUI() {
         viewModel.getAllUser()
@@ -35,7 +38,17 @@ class HomeViewController: BaseViewController {
     }
     
     override func bindViewModel() {
+        viewModel.name
+            .bind(to: nameLabel.rx.text)
+            .disposed(by: disposeBag)
         
+        viewModel.profileImage
+            .bind(to: imageView.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel.peopleCount
+            .bind(to: peopleCountLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,7 +64,7 @@ class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension PeopleViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.userList.count

@@ -12,9 +12,13 @@ import RxCocoa
 import Firebase
 import FirebaseStorage
 
-class HomeViewModel : BaseViewModel {
+class PeopleViewModel : BaseViewModel {
     
     let firebaseService = FirebaseService.instance
+    
+    let name = BehaviorRelay(value: "")
+    let profileImage = BehaviorRelay<UIImage?>(value: nil)
+    let peopleCount = BehaviorRelay(value: "")
     
     var userList: [User] = []
     
@@ -28,7 +32,7 @@ class HomeViewModel : BaseViewModel {
                 let values = item.value as! [String:Any]
                 self.setUserList(values: values)
             }
-            
+            self.peopleCount.accept("친구 \(self.userList.count)명")
             self.isSuccess.accept(true)
             self.isLoading.accept(true)
         })
@@ -40,12 +44,15 @@ class HomeViewModel : BaseViewModel {
         let profileImageUrl = values["profileImageUrl"] as? String ?? ""
         let uid = values["uid"] as? String ?? ""
         
-        if firebaseService.currentUserUid != uid {
-            let user = User()
-            user.name = name
-            user.image = profileImageUrl.getImage()
-            user.uid = uid
-            
+        let user = User()
+        user.name = name
+        user.image = profileImageUrl.getImage()
+        user.uid = uid
+        
+        if firebaseService.currentUserUid == uid {
+            self.name.accept(user.name!)
+            self.profileImage.accept(user.image)
+        } else {
             self.userList.append(user)
         }
     }

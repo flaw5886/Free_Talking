@@ -14,4 +14,27 @@ import FirebaseStorage
 
 class ChatListViewModel : BaseViewModel {
     
+    let firebaseService = FirebaseService.instance
+    
+    var chatList: [Chat] = []
+    var uidList: [String] = []
+    var nameList: [String] = []
+    
+    func getChatList() {
+        firebaseService.chatRoom.queryOrdered(byChild: "user/"+firebaseService.currentUserUid!).queryEqual(toValue: true)
+            .observe(DataEventType.value, with: { (dataSnapshot) in
+                self.chatList.removeAll()
+                
+                for item in dataSnapshot.children.allObjects as! [DataSnapshot] {
+                    
+                    if let chatroomdic = item.value as? [String:AnyObject] {
+                        let chat = Chat(JSON: chatroomdic)
+                        self.chatList.append(chat!)
+                    }
+                }
+                self.isSuccess.accept(true)
+                self.isLoading.accept(true)
+            })
+        
+    }
 }

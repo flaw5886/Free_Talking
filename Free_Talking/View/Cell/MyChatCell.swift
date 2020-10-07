@@ -11,8 +11,10 @@ import UIKit
 class MyChatCell: UICollectionViewCell {
     
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     func update(info: Comment) {
         messageLabel.text = info.message
+        timeLabel.text = info.timestamp?.todayTime()
     }
 }

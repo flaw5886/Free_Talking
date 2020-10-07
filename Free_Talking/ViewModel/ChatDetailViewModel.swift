@@ -70,13 +70,12 @@ class ChatDetailViewModel : BaseViewModel {
             
             let value: Dictionary<String,Any> = [
                 "uid": firebaseService.currentUserUid!,
-                "message": self.message.value
+                "message": self.message.value,
+                "timestamp": ServerValue.timestamp()
             ]
             
-            firebaseService.chatRoom.child(chatRoomUid!).child("comments").childByAutoId()
-                .setValue(value, withCompletionBlock: { (error, ref) in
-                    self.isReset.accept(true)
-            })
+            self.isReset.accept(true)
+            firebaseService.chatRoom.child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
         }
     }
     

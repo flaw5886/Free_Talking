@@ -11,10 +11,12 @@ import UIKit
 class DestinationChatCell: UICollectionViewCell {
     
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var profileImage: ProfileImage!
     
     func update(userInfo: User, commentInfo: Comment) {
         messageLabel.text = commentInfo.message
+        timeLabel.text = commentInfo.timestamp?.todayTime()
         profileImage.image = userInfo.image
     }
 }

@@ -88,7 +88,7 @@ class ChatDetailViewModel : BaseViewModel {
             let profileImageUrl = values["profileImageUrl"] as? String ?? ""
             
             self.user.name = name
-            self.user.image = profileImageUrl.getImage()
+            self.user.imageUrl = profileImageUrl
             
             self.getComments()
         })

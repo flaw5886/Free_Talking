@@ -17,6 +17,6 @@ class DestinationChatCell: UICollectionViewCell {
     func update(userInfo: User, commentInfo: Comment) {
         messageLabel.text = commentInfo.message
         timeLabel.text = commentInfo.timestamp?.todayTime()
-        profileImage.image = userInfo.image
+        profileImage.setImage(with: userInfo.imageUrl!)
     }
 }

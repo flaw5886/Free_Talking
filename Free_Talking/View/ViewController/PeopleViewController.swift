@@ -15,6 +15,7 @@ class PeopleViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var peopleCountLabel: UILabel!
     
     override func initUI() {
@@ -35,6 +36,10 @@ class PeopleViewController: BaseViewController {
                 self.startIndicatingActivity()
             }
         }.disposed(by: disposeBag)
+        
+        viewModel.profileImageUrl.bind { value in
+            self.imageView.setImage(with: value)
+        }.disposed(by: disposeBag)
     }
     
     override func bindViewModel() {
@@ -42,25 +47,40 @@ class PeopleViewController: BaseViewController {
             .bind(to: nameLabel.rx.text)
             .disposed(by: disposeBag)
         
-        viewModel.profileImage
-            .bind(to: imageView.rx.image)
-            .disposed(by: disposeBag)
-        
         viewModel.peopleCount
             .bind(to: peopleCountLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        profileButton.rx.tap
+            .bind(onNext: self.moveToProfile)
             .disposed(by: disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showChat" {
-            let vc = segue.destination as? ChatDetailViewController
+        if segue.identifier == "showProfile" {
+            let vc = segue.destination as? ProfileViewController
             
             if let index = sender as? Int {
                 let user = self.viewModel.userList[index]
                 vc?.viewModel.destinationUid = user.uid
                 vc?.viewModel.destinationName = user.name
+                vc?.viewModel.destinationImageUrl = user.imageUrl
+                vc?.viewModel.isHide.accept(false)
+                
+            } else if let user = sender as? User {
+                vc?.viewModel.destinationName = user.name
+                vc?.viewModel.destinationImageUrl = user.imageUrl
+                vc?.viewModel.isHide.accept(true)
             }
         }
+    }
+    
+    func moveToProfile() {
+        let user = User()
+        user.name = self.viewModel.name.value
+        user.imageUrl = self.viewModel.profileImageUrl.value
+        
+        performSegue(withIdentifier: "showProfile", sender: user)
     }
 }
 
@@ -83,6 +103,6 @@ extension PeopleViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showChat", sender: indexPath.item)
+        performSegue(withIdentifier: "showProfile", sender: indexPath.item)
     }
 }

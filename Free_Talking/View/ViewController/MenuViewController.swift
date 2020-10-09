@@ -10,9 +10,9 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class ProfileViewController: BaseViewController {
+class MenuViewController: BaseViewController {
     
-    let viewModel = ProfileViewModel()
+    let viewModel = MenuViewModel()
     
     @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var nameLabel: UILabel!
@@ -30,6 +30,10 @@ class ProfileViewController: BaseViewController {
                 self.startIndicatingActivity()
             }
         }.disposed(by: disposeBag)
+        
+        viewModel.profileImageUrl.bind { value in
+            self.imageView.setImage(with: value)
+        }.disposed(by: disposeBag)
     }
     
     override func bindViewModel() {
@@ -39,10 +43,6 @@ class ProfileViewController: BaseViewController {
             
         viewModel.name
             .bind(to: self.nameLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        viewModel.profileImage
-            .bind(to: self.imageView.rx.image)
             .disposed(by: disposeBag)
     }
 }

@@ -13,6 +13,7 @@ target 'Free_Talking' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
 	pod 'ObjectMapper', '~> 3.5'
+	pod 'Kingfisher', '~> 5.0'
 
   # Pods for Free_Talking
 

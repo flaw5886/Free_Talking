@@ -78,6 +78,9 @@ PODS:
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.4.0)
+  - Kingfisher (5.15.5):
+    - Kingfisher/Core (= 5.15.5)
+  - Kingfisher/Core (5.15.5)
   - leveldb-library (1.22)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
@@ -104,6 +107,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - Kingfisher (~> 5.0)
   - Moya/RxSwift (~> 14.0)
   - ObjectMapper (~> 3.5)
   - RxCocoa
@@ -123,6 +127,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
+    - Kingfisher
     - leveldb-library
     - Moya
     - nanopb
@@ -146,6 +151,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  Kingfisher: e3ec347a5ab8817b7585ef46923a2d2b9a7d8fbe
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
@@ -155,6 +161,6 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 9ce7b24f4517401b6bef8ac8e5610544baa30650
+PODFILE CHECKSUM: d746d0c915b0b7e692f3e2aab0de0ef79f627632
 
 COCOAPODS: 1.9.3

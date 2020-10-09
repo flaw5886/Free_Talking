@@ -19,7 +19,7 @@ class ChatRoomCell: UICollectionViewCell {
     
     func update(chatInfo: Chat, user: User) {
         let last = chatInfo.comments.keys.sorted() {$0>$1}
-        self.imageView.image = user.image
+        self.imageView.setImage(with: user.imageUrl!)
         self.nameLabel.text = user.name
         self.commentLabel.text = chatInfo.comments[last[0]]?.message
         self.timeLabel.text = chatInfo.comments[last[0]]?.timestamp?.todayTime()

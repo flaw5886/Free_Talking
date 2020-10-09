@@ -17,7 +17,7 @@ class PeopleViewModel : BaseViewModel {
     let firebaseService = FirebaseService.instance
     
     let name = BehaviorRelay(value: "")
-    let profileImage = BehaviorRelay<UIImage?>(value: nil)
+    let profileImageUrl = BehaviorRelay(value: "")
     let peopleCount = BehaviorRelay(value: "")
     
     var userList: [User] = []
@@ -46,12 +46,12 @@ class PeopleViewModel : BaseViewModel {
         
         let user = User()
         user.name = name
-        user.image = profileImageUrl.getImage()
+        user.imageUrl = profileImageUrl
         user.uid = uid
         
         if firebaseService.currentUserUid == uid {
             self.name.accept(user.name!)
-            self.profileImage.accept(user.image)
+            self.profileImageUrl.accept(user.imageUrl!)
         } else {
             self.userList.append(user)
         }

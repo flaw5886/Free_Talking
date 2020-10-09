@@ -10,15 +10,6 @@ import UIKit
 
 class User {
     var name: String?
-    var image: UIImage?
+    var imageUrl: String?
     var uid: String?
-}
-
-extension String {
-    
-    func getImage() -> UIImage {
-        let url = URL(string: self)
-        let data = try? Data(contentsOf: url!)
-        return UIImage(data: data!)!
-    }
 }

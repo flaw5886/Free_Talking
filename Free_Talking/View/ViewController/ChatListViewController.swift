@@ -85,7 +85,7 @@ extension ChatListViewController : UICollectionViewDataSource, UICollectionViewD
             
                 let user = User()
                 user.name = name
-                user.image = profileImageUrl.getImage()
+                user.imageUrl = profileImageUrl
                 user.uid = uid
                 
                 print(user.name!)

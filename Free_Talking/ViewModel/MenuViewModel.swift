@@ -28,9 +28,7 @@ class MenuViewModel : BaseViewModel {
             let values = snapshot.value
             self.setUserInfo(values: values as! [String:Any])
             
-            self.isSuccess.accept(true)
             self.isLoading.accept(true)
-            
         }) { (error) in
           print(error.localizedDescription)
       }
@@ -44,5 +42,14 @@ class MenuViewModel : BaseViewModel {
         self.email.accept(email)
         self.name.accept(name)
         self.profileImageUrl.accept(profileImageUrl)
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            self.isSuccess.accept(true)
+        } catch let error as NSError {
+            print(error)
+        }
     }
 }

@@ -15,7 +15,7 @@ extension UIImageView {
         if urlString != "" {
             let cache = ImageCache.default
             cache.retrieveImage(forKey: urlString, options: nil) { (image, _) in // 캐시에서 키를 통해 이미지를 가져온다.
-                if let image = image { // 만약 캐시에 이미지가 존재한다면
+                if let image = image { // 만약 캐시의 이미지와 같다면
                     self.image = image // 바로 이미지를 셋한다.
                 } else {
                     let url = URL(string: urlString) // 캐시가 없다면

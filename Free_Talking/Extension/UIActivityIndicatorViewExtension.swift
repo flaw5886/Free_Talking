@@ -18,7 +18,7 @@ extension UIActivityIndicatorView {
         indicator.center = center
         indicator.hidesWhenStopped = true
         indicator.style = UIActivityIndicatorView.Style.white
-        indicator.backgroundColor = UIColor.black
+        indicator.backgroundColor = UIColor.systemBlue
         
         return indicator
     }

@@ -88,8 +88,6 @@ extension ChatListViewController : UICollectionViewDataSource, UICollectionViewD
                 user.imageUrl = profileImageUrl
                 user.uid = uid
                 
-                print(user.name!)
-                
                 self.viewModel.nameList.append(name)
                 cell.update(chatInfo: self.viewModel.chatList[indexPath.item], user: user)
             })

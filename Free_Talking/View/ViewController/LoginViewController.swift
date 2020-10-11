@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: BaseViewController {
 
@@ -19,6 +20,14 @@ class LoginViewController: BaseViewController {
     
     override func initUI() {
         loginButton.layer.cornerRadius = 8
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "showMain", sender: nil)
+        }
     }
     
     @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) { }

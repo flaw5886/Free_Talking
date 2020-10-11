@@ -17,8 +17,10 @@ class MenuViewController: BaseViewController {
     @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
     
     override func initUI() {
+        logoutButton.layer.cornerRadius = 8
         viewModel.getUserInfo()
     }
     
@@ -28,6 +30,12 @@ class MenuViewController: BaseViewController {
                 self.stopIndicatingActivity()
             } else {
                 self.startIndicatingActivity()
+            }
+        }.disposed(by: disposeBag)
+        
+        viewModel.isSuccess.bind { value in
+            if value {
+                self.performSegue(withIdentifier: "unwindToLogin", sender: nil)
             }
         }.disposed(by: disposeBag)
         
@@ -43,6 +51,10 @@ class MenuViewController: BaseViewController {
             
         viewModel.name
             .bind(to: self.nameLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        logoutButton.rx.tap
+            .bind(onNext: viewModel.logout)
             .disposed(by: disposeBag)
     }
 }

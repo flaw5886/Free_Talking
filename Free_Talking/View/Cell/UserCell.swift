@@ -12,9 +12,11 @@ class UserCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     
     func update(info: User) {
         nameLabel.text = info.name
         imageView.setImage(with: info.imageUrl!)
+        commentLabel.text = info.comment
     }
 }

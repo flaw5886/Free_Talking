@@ -29,12 +29,16 @@ class RegisterViewController: BaseViewController {
         viewModel.isSuccess.bind { value in
             if value {
                 self.performSegue(withIdentifier: "unwindToLogin", sender: nil)
+            } else {
+                self.warningAlert(title: "실패!", message: "회원가입 실패")
             }
         }.disposed(by: disposeBag)
         
-        viewModel.isError.bind { value in
+        viewModel.isLoading.bind { value in
             if value {
-                self.warningAlert(title: "실패!", message: "회원가입 실패")
+                self.startIndicatingActivity()
+            } else {
+                self.stopIndicatingActivity()
             }
         }.disposed(by: disposeBag)
     }

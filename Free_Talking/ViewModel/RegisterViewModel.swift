@@ -22,8 +22,10 @@ class RegisterViewModel: BaseViewModel {
     let profileImage = BehaviorRelay<UIImage?>(value: nil)
     
     func register() {
+        isLoading.accept(true)
+        
         Auth.auth().createUser(withEmail: email.value, password: pw.value) { (user, error) in
-            let uid = user?.user.uid
+            let uid = user?.user.uid ?? self.firebaseService.currentUserUid
             let imageRef = self.firebaseService.userImageRef.child(uid!)
             let userRef = self.firebaseService.userRef.child(uid!)
             
@@ -39,6 +41,7 @@ class RegisterViewModel: BaseViewModel {
                     userRef.setValue(value, withCompletionBlock: { (error, ref) in
                         if error == nil {
                             self.isSuccess.accept(true)
+                            self.isLoading.accept(false)
                         }
                     })
                 })

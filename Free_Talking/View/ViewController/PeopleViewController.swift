@@ -15,6 +15,7 @@ class PeopleViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var peopleCountLabel: UILabel!
     
@@ -47,6 +48,10 @@ class PeopleViewController: BaseViewController {
             .bind(to: nameLabel.rx.text)
             .disposed(by: disposeBag)
         
+        viewModel.comment
+            .bind(to: commentLabel.rx.text)
+            .disposed(by: disposeBag)
+        
         viewModel.peopleCount
             .bind(to: peopleCountLabel.rx.text)
             .disposed(by: disposeBag)
@@ -62,25 +67,18 @@ class PeopleViewController: BaseViewController {
             
             if let index = sender as? Int {
                 let user = self.viewModel.userList[index]
-                vc?.viewModel.destinationUid = user.uid
-                vc?.viewModel.destinationName = user.name
-                vc?.viewModel.destinationImageUrl = user.imageUrl
+                vc?.viewModel.destinationUid = user.uid!
                 vc?.viewModel.isHide.accept(false)
                 
-            } else if let user = sender as? User {
-                vc?.viewModel.destinationName = user.name
-                vc?.viewModel.destinationImageUrl = user.imageUrl
+            } else if let uid = sender as? String {
+                vc?.viewModel.destinationUid = uid
                 vc?.viewModel.isHide.accept(true)
             }
         }
     }
     
     func moveToProfile() {
-        let user = User()
-        user.name = self.viewModel.name.value
-        user.imageUrl = self.viewModel.profileImageUrl.value
-        
-        performSegue(withIdentifier: "showProfile", sender: user)
+        performSegue(withIdentifier: "showProfile", sender: self.viewModel.firebaseService.currentUserUid!)
     }
 }
 

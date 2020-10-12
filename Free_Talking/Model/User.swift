@@ -12,4 +12,5 @@ class User {
     var name: String?
     var imageUrl: String?
     var uid: String?
+    var comment: String?
 }

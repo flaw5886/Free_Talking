@@ -17,6 +17,7 @@ class PeopleViewModel : BaseViewModel {
     let firebaseService = FirebaseService.instance
     
     let name = BehaviorRelay(value: "")
+    let comment = BehaviorRelay(value: "")
     let profileImageUrl = BehaviorRelay(value: "")
     let peopleCount = BehaviorRelay(value: "")
     
@@ -43,15 +44,18 @@ class PeopleViewModel : BaseViewModel {
         let name = values["name"] as? String ?? ""
         let profileImageUrl = values["profileImageUrl"] as? String ?? ""
         let uid = values["uid"] as? String ?? ""
+        let comment = values["comment"] as? String ?? ""
         
         let user = User()
         user.name = name
         user.imageUrl = profileImageUrl
         user.uid = uid
+        user.comment = comment
         
         if firebaseService.currentUserUid == uid {
             self.name.accept(user.name!)
             self.profileImageUrl.accept(user.imageUrl!)
+            self.comment.accept(user.comment!)
         } else {
             self.userList.append(user)
         }

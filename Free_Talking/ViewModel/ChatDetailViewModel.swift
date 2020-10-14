@@ -27,11 +27,16 @@ class ChatDetailViewModel : BaseViewModel {
     var destinationName: String?
     var chatRoomUid: String?
     
+    var databaseRef: DatabaseReference?
+    var observe: UInt?
+    
+    var peopleCount: Int?
+    
     func checkChatRoom() {
         firebaseService.chatRoom
             .queryOrdered(byChild: "user/" + firebaseService.currentUserUid!)
             .queryEqual(toValue: true)
-            .observe(DataEventType.value, with: { (dataSnapshot) in
+            .observeSingleEvent(of: DataEventType.value, with: { (dataSnapshot) in
                 
                 for item in dataSnapshot.children.allObjects as! [DataSnapshot] {
                     
@@ -49,7 +54,6 @@ class ChatDetailViewModel : BaseViewModel {
     }
     
     func createRoom() {
-        
         if chatRoomUid == nil { // 방 생성
             self.isEnabled.accept(false)
             
@@ -89,21 +93,61 @@ class ChatDetailViewModel : BaseViewModel {
             
             self.user.name = name
             self.user.imageUrl = profileImageUrl
-            
-            self.getComments()
+        
+            self.getUserCount()
         })
     }
     
+    func getUserCount() {
+        firebaseService.chatRoom.child(chatRoomUid!).child("user").observeSingleEvent(of: .value, with: { (dataSnapshot) in
+            let dic = dataSnapshot.value as! [String:Any]
+            
+            if self.peopleCount == nil {
+                self.peopleCount = dic.count
+            }
+        })
+        self.getComments()
+    }
+    
     func getComments() {
-        firebaseService.chatRoom.child(chatRoomUid!).child("comments")
-            .observe(DataEventType.value, with: { (dataSnapshot) in
+        databaseRef = firebaseService.chatRoom.child(chatRoomUid!).child("comments")
+        observe = databaseRef?.observe(DataEventType.value, with: { (dataSnapshot) in
             self.comments.removeAll()
             
+            var readUserDic: Dictionary<String, AnyObject> = [:]
+        
             for item in dataSnapshot.children.allObjects as! [DataSnapshot] {
+                let key = item.key as String
+                
                 let comment = Comment(JSON: item.value as! [String:AnyObject])
+                let commentMotify = Comment(JSON: item.value as! [String:AnyObject])
+                
+                commentMotify?.readUsers[self.firebaseService.currentUserUid!] = true
+                readUserDic[key] = (commentMotify?.toJSON())! as NSDictionary
+                
                 self.comments.append(comment!)
             }
-            self.isSuccess.accept(true)
+            
+            let nsDic = readUserDic as NSDictionary
+            
+            if self.comments.last?.readUsers != nil {
+                if (!(self.comments.last?.readUsers.keys.contains(self.firebaseService.currentUserUid!))!) {
+                    dataSnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
+                        
+                        if error == nil {
+                            self.isSuccess.accept(true)
+                        }
+                    })
+                    
+                } else {
+                    self.isSuccess.accept(true)
+                }
+            }
+            
         })
+    }
+    
+    func removeObserve() {
+        databaseRef?.removeObserver(withHandle: observe!)
     }
 }

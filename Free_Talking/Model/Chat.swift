@@ -28,6 +28,7 @@ class Comment: Mappable {
     var message: String?
     var uid: String?
     var timestamp: Int?
+    var readUsers: Dictionary<String, Bool> = [:]
     
     required init?(map: Map) {
         
@@ -37,6 +38,7 @@ class Comment: Mappable {
         message <- map["message"]
         uid <- map["uid"]
         timestamp <- map["timestamp"]
+        readUsers <- map["readUsers"]
     }
 }
 

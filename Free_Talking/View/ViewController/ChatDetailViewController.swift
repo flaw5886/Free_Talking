@@ -10,7 +10,7 @@ import UIKit
 
 class ChatDetailViewController: BaseViewController {
     
-    let viewModel = ChatDetailViewModel()
+    var viewModel = ChatDetailViewModel()
     
     @IBOutlet weak var navigation: UINavigationItem!
     @IBOutlet weak var chatField: UITextField!
@@ -23,6 +23,11 @@ class ChatDetailViewController: BaseViewController {
         initData(constraints: viewConstraints)
         navigation.title = viewModel.destinationName
         viewModel.checkChatRoom()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.removeObserve()
     }
     
     override func configureCallback() {
@@ -69,24 +74,26 @@ extension ChatDetailViewController : UICollectionViewDataSource, UICollectionVie
                 return UICollectionViewCell()
             }
             cell.layer.cornerRadius = 8
-            cell.update(info: viewModel.comments[indexPath.item])
+            
+            if self.viewModel.peopleCount != nil {
+                cell.update(info: self.viewModel.comments[indexPath.item], userCount: self.viewModel.peopleCount!)
+            }
             
             return cell
         } else {
-            
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DestinationChatCell", for: indexPath)
                 as? DestinationChatCell else {
                 return UICollectionViewCell()
             }
             cell.layer.cornerRadius = 8
             
-            if viewModel.user.name != nil {
-                cell.update(userInfo: viewModel.user, commentInfo: viewModel.comments[indexPath.item])
+            if self.viewModel.user.name != nil && self.viewModel.peopleCount != nil {
+                
+                cell.update(userInfo: self.viewModel.user, userCount: self.viewModel.peopleCount!, commentInfo: self.viewModel.comments[indexPath.item])
             }
-            
+        
             return cell
         }
-        
     }
     
     func scrollToBottomAnimated(animated: Bool) {

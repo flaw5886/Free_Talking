@@ -20,6 +20,8 @@ class ChatListViewModel : BaseViewModel {
     var uidList: [String] = []
     var nameList: [String] = []
     
+    var destinationUid: String?
+    
     func getChatList() {
         firebaseService.chatRoom.queryOrdered(byChild: "user/"+firebaseService.currentUserUid!).queryEqual(toValue: true)
             .observe(DataEventType.value, with: { (dataSnapshot) in
@@ -35,6 +37,25 @@ class ChatListViewModel : BaseViewModel {
                 self.isSuccess.accept(true)
                 self.isLoading.accept(true)
             })
+    }
+    
+    func getUid(index: Int) {
+        for item in chatList[index].user {
+            if item.key != firebaseService.currentUserUid {
+                destinationUid = item.key
+                self.uidList.append(destinationUid!)
+            }
+        }
+    }
+    
+    func getUserInfo(data: DataSnapshot) -> User {
+        let values = data.value as! [String:AnyObject]
         
+        let user = User()
+        user.name = values["name"] as? String ?? ""
+        user.imageUrl = values["profileImageUrl"] as? String ?? ""
+        user.uid = values["uid"] as? String ?? ""
+        
+        return user
     }
 }

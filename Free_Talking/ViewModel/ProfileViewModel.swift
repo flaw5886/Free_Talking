@@ -26,17 +26,16 @@ class ProfileViewModel: BaseViewModel {
     func getUserInfo() {
         let userRef = firebaseService.userRef.child(destinationUid!)
         userRef.observe(.value, with: { (snapshot) in
-            
-            let values = snapshot.value
-            self.setUserInfo(values: values as! [String:Any])
-            
+            self.setUserInfo(data: snapshot)
             self.isLoading.accept(true)
         }) { (error) in
           print(error.localizedDescription)
       }
     }
     
-    func setUserInfo(values: [String : Any]) {
+    func setUserInfo(data: DataSnapshot) {
+        let values = data.value as! [String:Any]
+        
         let name = values["name"] as? String ?? ""
         let comment = values["comment"] as? String ?? ""
         let profileImageUrl = values["profileImageUrl"] as? String ?? ""

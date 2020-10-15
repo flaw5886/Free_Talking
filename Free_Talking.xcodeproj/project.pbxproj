@@ -185,12 +185,12 @@
 			isa = PBXGroup;
 			children = (
 				8DD00A922501CE9A003468C8 /* LoginViewModel.swift */,
+				8D09F648251AC39100E1717D /* RegisterViewModel.swift */,
 				8D65D6F32511929100B133E0 /* PeopleViewModel.swift */,
+				8DDFB438252EA9A0006E7500 /* ProfileViewModel.swift */,
 				8D65D6F72511947900B133E0 /* ChatListViewModel.swift */,
 				8D1DE6CE2521FA28000FE641 /* ChatDetailViewModel.swift */,
-				8D09F648251AC39100E1717D /* RegisterViewModel.swift */,
 				8D2C0042251B3D4B0040086C /* MenuViewModel.swift */,
-				8DDFB438252EA9A0006E7500 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -199,12 +199,12 @@
 			isa = PBXGroup;
 			children = (
 				8D4233AE2501C7A400D96C36 /* LoginViewController.swift */,
+				8D31E64C2518536D00852288 /* RegisterViewController.swift */,
 				8D65D6F12511921900B133E0 /* PeopleViewController.swift */,
+				8DDFB435252EA98B006E7500 /* ProfileViewController.swift */,
 				8D65D6F52511946C00B133E0 /* ChatListViewController.swift */,
 				8D1DE6CB2521F9F3000FE641 /* ChatDetailViewController.swift */,
-				8D31E64C2518536D00852288 /* RegisterViewController.swift */,
 				8D2C003F251B3D100040086C /* MenuViewController.swift */,
-				8DDFB435252EA98B006E7500 /* ProfileViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

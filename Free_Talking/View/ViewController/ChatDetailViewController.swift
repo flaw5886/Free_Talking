@@ -88,13 +88,16 @@ extension ChatDetailViewController : UICollectionViewDataSource, UICollectionVie
             cell.layer.cornerRadius = 8
             
             if self.viewModel.user.name != nil && self.viewModel.peopleCount != nil {
-                
                 cell.update(userInfo: self.viewModel.user, userCount: self.viewModel.peopleCount!, commentInfo: self.viewModel.comments[indexPath.item])
             }
         
             return cell
         }
     }
+}
+
+
+extension ChatDetailViewController {
     
     func scrollToBottomAnimated(animated: Bool) {
             guard self.collectionView.numberOfSections > 0 else {

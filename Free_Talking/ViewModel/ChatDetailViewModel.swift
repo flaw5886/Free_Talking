@@ -27,10 +27,10 @@ class ChatDetailViewModel : BaseViewModel {
     var destinationName: String?
     var chatRoomUid: String?
     
+    var peopleCount: Int?
+    
     var databaseRef: DatabaseReference?
     var observe: UInt?
-    
-    var peopleCount: Int?
     
     func checkChatRoom() {
         firebaseService.chatRoom
@@ -85,14 +85,10 @@ class ChatDetailViewModel : BaseViewModel {
     
     func getDestinationInfo() {
         firebaseService.userRef.child(destinationUid!).observeSingleEvent(of: .value, with: { (snapshot) in
-            
             let values = snapshot.value as! [String:Any]
             
-            let name = values["name"] as? String ?? ""
-            let profileImageUrl = values["profileImageUrl"] as? String ?? ""
-            
-            self.user.name = name
-            self.user.imageUrl = profileImageUrl
+            self.user.name = values["name"] as? String ?? ""
+            self.user.imageUrl = values["profileImageUrl"] as? String ?? ""
         
             self.getUserCount()
         })
@@ -117,34 +113,31 @@ class ChatDetailViewModel : BaseViewModel {
             var readUserDic: Dictionary<String, AnyObject> = [:]
         
             for item in dataSnapshot.children.allObjects as! [DataSnapshot] {
-                let key = item.key as String
-                
                 let comment = Comment(JSON: item.value as! [String:AnyObject])
-                let commentMotify = Comment(JSON: item.value as! [String:AnyObject])
-                
-                commentMotify?.readUsers[self.firebaseService.currentUserUid!] = true
-                readUserDic[key] = (commentMotify?.toJSON())! as NSDictionary
-                
                 self.comments.append(comment!)
+                
+                let commentMotify = Comment(JSON: item.value as! [String:AnyObject])
+                commentMotify?.readUsers[self.firebaseService.currentUserUid!] = true
+                
+                let key = item.key as String
+                readUserDic[key] = (commentMotify?.toJSON())! as NSDictionary
             }
-            
-            let nsDic = readUserDic as NSDictionary
-            
-            if self.comments.last?.readUsers != nil {
-                if (!(self.comments.last?.readUsers.keys.contains(self.firebaseService.currentUserUid!))!) {
-                    dataSnapshot.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
-                        
-                        if error == nil {
-                            self.isSuccess.accept(true)
-                        }
-                    })
-                    
-                } else {
-                    self.isSuccess.accept(true)
-                }
-            }
-            
+            self.setReadUser(nsDic: readUserDic as NSDictionary, data: dataSnapshot)
         })
+    }
+    
+    func setReadUser(nsDic: NSDictionary, data: DataSnapshot) {
+        if self.comments.last?.readUsers != nil {
+            if (!(self.comments.last?.readUsers.keys.contains(self.firebaseService.currentUserUid!))!) {
+                data.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
+                    if error == nil {
+                        self.isSuccess.accept(true)
+                    }
+                })
+            } else {
+                self.isSuccess.accept(true)
+            }
+        }
     }
     
     func removeObserve() {

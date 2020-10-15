@@ -66,31 +66,17 @@ extension ChatListViewController : UICollectionViewDataSource, UICollectionViewD
         }
         cell.layer.cornerRadius = 8
         
-        var destinationUid: String?
+        viewModel.getUid(index: indexPath.item)
         
-        for item in viewModel.chatList[indexPath.item].user {
-            if item.key != viewModel.firebaseService.currentUserUid {
-                destinationUid = item.key
-                viewModel.uidList.append(destinationUid!)
-            }
+        if let uid = self.viewModel.destinationUid {
+            viewModel.firebaseService.userRef.child(uid)
+                .observe(DataEventType.value, with: { (dataSnapshot) in
+                    
+                    let user = self.viewModel.getUserInfo(data: dataSnapshot)
+                    self.viewModel.nameList.append(user.name!)
+                    cell.update(chatInfo: self.viewModel.chatList[indexPath.item], user: user)
+                })
         }
-        
-        viewModel.firebaseService.userRef.child(destinationUid!)
-            .observe(DataEventType.value, with: { (dataSnapshot) in
-                
-                let values = dataSnapshot.value as! [String:AnyObject]
-                let name = values["name"] as? String ?? ""
-                let profileImageUrl = values["profileImageUrl"] as? String ?? ""
-                let uid = values["uid"] as? String ?? ""
-            
-                let user = User()
-                user.name = name
-                user.imageUrl = profileImageUrl
-                user.uid = uid
-                
-                self.viewModel.nameList.append(name)
-                cell.update(chatInfo: self.viewModel.chatList[indexPath.item], user: user)
-            })
         
         return cell
     }

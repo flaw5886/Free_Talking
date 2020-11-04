@@ -12,11 +12,11 @@ class ProfileViewController: BaseViewController {
 
     let viewModel = ProfileViewModel()
     
+    @IBOutlet weak var backgroundView: UIImageView!
     @IBOutlet weak var imageView: ProfileImage!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var chatButton: UIButton!
-    @IBOutlet weak var chatLabel: UILabel!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     override func initUI() {
@@ -49,10 +49,6 @@ class ProfileViewController: BaseViewController {
         
         viewModel.isHide
             .bind(to: self.chatButton.rx.isHidden)
-            .disposed(by: disposeBag)
-        
-        viewModel.isHide
-            .bind(to: self.chatLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
         chatButton.rx.tap

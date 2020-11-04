@@ -64,7 +64,7 @@ class BaseViewController : UIViewController {
         let newHeight: CGFloat = keybordSize.height - safeBot
         
         UIView.setAnimationsEnabled(false)
-        self.constraints.constant = newHeight
+        self.constraints.constant = newHeight + 20
         self.view.layoutIfNeeded()
         UIView.setAnimationsEnabled(true)
     }

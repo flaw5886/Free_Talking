@@ -55,6 +55,10 @@ class ChatListViewController: BaseViewController {
 
 extension ChatListViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width * 0.95, height: 60)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.chatList.count
     }
@@ -65,6 +69,10 @@ extension ChatListViewController : UICollectionViewDataSource, UICollectionViewD
             return UICollectionViewCell()
         }
         cell.layer.cornerRadius = 8
+        
+        let alarmView = cell.alarmView!
+        alarmView.layer.cornerRadius = alarmView.frame.size.height/2
+        alarmView.layer.masksToBounds = true
         
         viewModel.getUid(index: indexPath.item)
         

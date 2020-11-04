@@ -52,6 +52,7 @@
 		8D1DE6C82521F938000FE641 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		8D1DE6CB2521F9F3000FE641 /* ChatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
 		8D1DE6CE2521FA28000FE641 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
+		8D258993254D8D6D0048E62E /* Free_Talking.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Free_Talking.entitlements; sourceTree = "<group>"; };
 		8D2C003F251B3D100040086C /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8D2C0042251B3D4B0040086C /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		8D2F966C25304A0E00B1D27C /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		8D4233A92501C7A400D96C36 /* Free_Talking */ = {
 			isa = PBXGroup;
 			children = (
+				8D258993254D8D6D0048E62E /* Free_Talking.entitlements */,
 				8DEE328D2501E69B00FBD592 /* StoryBoard */,
 				8DEE328E2501EA8D00FBD592 /* Base */,
 				8DD00A902501CE6A003468C8 /* View */,
@@ -533,6 +535,7 @@
 			baseConfigurationReference = 056F40B06D0C42D4FB5C6971 /* Pods-Free_Talking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Free_Talking/Free_Talking.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98Y25V599G;
 				INFOPLIST_FILE = Free_Talking/Info.plist;
@@ -543,6 +546,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parkjin.free-talking.Free-Talking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -553,6 +557,7 @@
 			baseConfigurationReference = 5AB5D466F13774BF695C3335 /* Pods-Free_Talking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Free_Talking/Free_Talking.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98Y25V599G;
 				INFOPLIST_FILE = Free_Talking/Info.plist;
@@ -563,6 +568,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parkjin.free-talking.Free-Talking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

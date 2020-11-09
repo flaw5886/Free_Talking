@@ -455,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eg5-WT-8Eb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751" y="1787"/>
+            <point key="canvasLocation" x="-752" y="1786"/>
         </scene>
         <!--프로필-->
         <scene sceneID="g3U-ce-d8M">
@@ -494,7 +494,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dv5-3N-GAU">
-                                <rect key="frame" x="157" y="737" width="85" height="23"/>
+                                <rect key="frame" x="100" y="737" width="190" height="23"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="1:1 채팅" image="bubble.left.and.bubble.right.fill" catalog="system">
@@ -507,7 +507,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="XIZ-gW-6e8" firstAttribute="top" secondItem="yXZ-kA-wmm" secondAttribute="bottom" constant="20" id="34F-aa-S1G"/>
-                            <constraint firstItem="VYD-na-F69" firstAttribute="trailing" secondItem="dv5-3N-GAU" secondAttribute="trailing" constant="148" id="3Pf-dD-5ff"/>
+                            <constraint firstItem="VYD-na-F69" firstAttribute="trailing" secondItem="dv5-3N-GAU" secondAttribute="trailing" constant="100" id="3Pf-dD-5ff"/>
                             <constraint firstItem="DIi-mZ-G0v" firstAttribute="top" secondItem="jcc-Ka-xPN" secondAttribute="bottom" constant="8" symbolic="YES" id="4CO-a2-CcH"/>
                             <constraint firstItem="J5i-8Q-6pk" firstAttribute="top" secondItem="VYD-na-F69" secondAttribute="top" id="547-Un-Uaf"/>
                             <constraint firstItem="J5i-8Q-6pk" firstAttribute="leading" secondItem="VYD-na-F69" secondAttribute="leading" id="ELI-VJ-9JF"/>
@@ -523,7 +523,7 @@
                             <constraint firstItem="VYD-na-F69" firstAttribute="trailing" secondItem="yXZ-kA-wmm" secondAttribute="trailing" constant="50" id="hwb-Sl-wsQ"/>
                             <constraint firstItem="XIZ-gW-6e8" firstAttribute="leading" secondItem="VYD-na-F69" secondAttribute="leading" id="r7z-10-NcG"/>
                             <constraint firstItem="DIi-mZ-G0v" firstAttribute="trailing" secondItem="jcc-Ka-xPN" secondAttribute="trailing" id="uf7-lZ-Bzr"/>
-                            <constraint firstItem="dv5-3N-GAU" firstAttribute="leading" secondItem="VYD-na-F69" secondAttribute="leading" constant="157" id="ykt-sf-Bab"/>
+                            <constraint firstItem="dv5-3N-GAU" firstAttribute="leading" secondItem="VYD-na-F69" secondAttribute="leading" constant="100" id="ykt-sf-Bab"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="프로필" id="cLk-ym-Lqr">
@@ -541,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCm-W9-v41" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751" y="2585"/>
+            <point key="canvasLocation" x="-1169" y="2610"/>
         </scene>
         <!--박진-->
         <scene sceneID="JzL-k7-WIk">
@@ -741,7 +741,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ZT-K5-2Bt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="49" y="2585"/>
+            <point key="canvasLocation" x="-328" y="2610"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7eD-89-xfC">
@@ -764,6 +764,100 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOA-Jp-uMF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="49" y="177"/>
+        </scene>
+        <!--친구 선택-->
+        <scene sceneID="L48-c1-Wvj">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="ah6-QY-YGi" customClass="PeopleSelectViewController" customModule="Free_Talking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vta-m1-Eg2">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-vl-TwN">
+                                <rect key="frame" x="0.0" y="140" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YuC-E1-eUa">
+                                    <size key="itemSize" width="350" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserSelectCell" id="qNi-lP-1qU" customClass="UserSelectCell" customModule="Free_Talking" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="350" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="P9e-mh-x0b">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cM0-PD-pQZ" customClass="BEMCheckBox">
+                                                    <rect key="frame" x="320" y="15" width="20" height="20"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="cM0-PD-pQZ" secondAttribute="height" multiplier="1:1" id="4Lj-5t-WkN"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="ah6-QY-YGi" id="1Eo-OA-SgY"/>
+                                                    </connections>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y9c-lr-92P" customClass="ProfileImage" customModule="Free_Talking" customModuleProvider="target">
+                                                    <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Y9c-lr-92P" secondAttribute="height" multiplier="1:1" id="MX1-ya-3Wn"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgb-oT-Y5T">
+                                                    <rect key="frame" x="58" y="5" width="42" height="40"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lgb-oT-Y5T" firstAttribute="bottom" secondItem="Y9c-lr-92P" secondAttribute="bottom" id="2tU-eY-E7i"/>
+                                                <constraint firstItem="lgb-oT-Y5T" firstAttribute="leading" secondItem="Y9c-lr-92P" secondAttribute="trailing" constant="13" id="3wD-vi-Sq1"/>
+                                                <constraint firstAttribute="trailing" secondItem="cM0-PD-pQZ" secondAttribute="trailing" constant="10" id="8eK-tN-WqL"/>
+                                                <constraint firstItem="lgb-oT-Y5T" firstAttribute="top" secondItem="Y9c-lr-92P" secondAttribute="top" id="HsQ-qB-6Yf"/>
+                                                <constraint firstItem="Y9c-lr-92P" firstAttribute="leading" secondItem="P9e-mh-x0b" secondAttribute="leading" constant="5" id="U6Z-2o-WeS"/>
+                                                <constraint firstItem="Y9c-lr-92P" firstAttribute="top" secondItem="P9e-mh-x0b" secondAttribute="top" constant="5" id="hqV-QJ-DVF"/>
+                                                <constraint firstItem="cM0-PD-pQZ" firstAttribute="top" secondItem="P9e-mh-x0b" secondAttribute="top" constant="15" id="jgD-JG-60X"/>
+                                                <constraint firstAttribute="bottom" secondItem="cM0-PD-pQZ" secondAttribute="bottom" constant="15" id="oSj-nq-gcN"/>
+                                                <constraint firstAttribute="bottom" secondItem="Y9c-lr-92P" secondAttribute="bottom" constant="5" id="yNL-W8-Mu6"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBox" destination="cM0-PD-pQZ" id="a2Z-XF-ziY"/>
+                                            <outlet property="imageView" destination="Y9c-lr-92P" id="EQE-FY-A38"/>
+                                            <outlet property="nameLabel" destination="lgb-oT-Y5T" id="xIk-5c-FTd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ah6-QY-YGi" id="kaz-BT-fLB"/>
+                                    <outlet property="delegate" destination="ah6-QY-YGi" id="6jX-Yp-wAu"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="H04-87-weQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hmD-vl-TwN" firstAttribute="leading" secondItem="H04-87-weQ" secondAttribute="leading" id="3qL-NZ-ked"/>
+                            <constraint firstItem="H04-87-weQ" firstAttribute="trailing" secondItem="hmD-vl-TwN" secondAttribute="trailing" id="6vh-oZ-hlP"/>
+                            <constraint firstItem="H04-87-weQ" firstAttribute="bottom" secondItem="hmD-vl-TwN" secondAttribute="bottom" id="M6S-OC-8wx"/>
+                            <constraint firstItem="hmD-vl-TwN" firstAttribute="top" secondItem="H04-87-weQ" secondAttribute="top" id="biV-9f-pZj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="친구 선택" id="4nL-wB-4Xy">
+                        <barButtonItem key="rightBarButtonItem" title="확인" style="plain" id="6aO-1H-PqK"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="checkButton" destination="6aO-1H-PqK" id="5F4-BD-LsH"/>
+                        <outlet property="collectionView" destination="hmD-vl-TwN" id="eAO-fe-Zou"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3X3-do-F7z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484.61538461538458" y="2609.7156398104266"/>
         </scene>
         <!--채팅-->
         <scene sceneID="MoM-md-hrA">
@@ -863,7 +957,13 @@
                             <constraint firstItem="y8n-cn-0e7" firstAttribute="trailing" secondItem="RWT-QV-bJj" secondAttribute="trailing" id="jXk-Yz-D2S"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="채팅" id="7lA-DB-FgO"/>
+                    <navigationItem key="navigationItem" title="채팅" id="7lA-DB-FgO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="a3k-tv-ewm">
+                            <connections>
+                                <segue destination="ah6-QY-YGi" kind="show" id="wEY-8u-hZ5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="RWT-QV-bJj" id="Nsb-PD-9t3"/>
                         <segue destination="xGM-y4-6aw" kind="show" identifier="showChat" id="gF2-Zr-IEn"/>
@@ -871,7 +971,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeU-Yq-Yg9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="49" y="1787"/>
+            <point key="canvasLocation" x="49" y="1786"/>
         </scene>
         <!--전체-->
         <scene sceneID="j2l-LN-8UP">
@@ -950,7 +1050,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJS-nh-ct5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="1787"/>
+            <point key="canvasLocation" x="838" y="1786"/>
         </scene>
         <!--친구-->
         <scene sceneID="BmA-D1-WLc">
@@ -1010,6 +1110,11 @@
             <point key="canvasLocation" x="839" y="1019"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="cM0-PD-pQZ">
+            <size key="intrinsicContentSize" width="20" height="20"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="osi-eu-qaS"/>
     </inferredMetricsTieBreakers>

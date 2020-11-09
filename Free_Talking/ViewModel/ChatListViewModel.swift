@@ -31,6 +31,7 @@ class ChatListViewModel : BaseViewModel {
                     
                     if let chatroomdic = item.value as? [String:AnyObject] {
                         let chat = Chat(JSON: chatroomdic)
+                        print(chatroomdic)
                         self.chatList.append(chat!)
                     }
                 }

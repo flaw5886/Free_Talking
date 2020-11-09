@@ -14,6 +14,7 @@ target 'Free_Talking' do
 	pod 'Firebase/Storage'
 	pod 'ObjectMapper', '~> 3.5'
 	pod 'Kingfisher', '~> 5.0'
+	pod 'BEMCheckBox'
 
   # Pods for Free_Talking
 

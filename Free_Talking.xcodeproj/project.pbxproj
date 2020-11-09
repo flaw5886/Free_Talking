@@ -29,6 +29,9 @@
 		8D65D6F62511946C00B133E0 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F52511946C00B133E0 /* ChatListViewController.swift */; };
 		8D65D6F82511947900B133E0 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6F72511947900B133E0 /* ChatListViewModel.swift */; };
 		8D65D6FD251199F000B133E0 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65D6FC251199F000B133E0 /* UserCell.swift */; };
+		8D77603325583BF40039D87B /* PeopleSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D77603225583BF40039D87B /* PeopleSelectViewModel.swift */; };
+		8D812624255838DB00060D92 /* PeopleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D812623255838DB00060D92 /* PeopleSelectViewController.swift */; };
+		8D8126282558398D00060D92 /* UserSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8126272558398D00060D92 /* UserSelectCell.swift */; };
 		8D8FE4BA252AA675003199F8 /* DestinationChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8FE4B9252AA675003199F8 /* DestinationChatCell.swift */; };
 		8DC0D19C2503EA84009CB3DD /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0D19A2503EA84009CB3DD /* UIViewControllerExtension.swift */; };
 		8DC0D19D2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0D19B2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift */; };
@@ -71,6 +74,9 @@
 		8D65D6F52511946C00B133E0 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		8D65D6F72511947900B133E0 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		8D65D6FC251199F000B133E0 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		8D77603225583BF40039D87B /* PeopleSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectViewModel.swift; sourceTree = "<group>"; };
+		8D812623255838DB00060D92 /* PeopleSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSelectViewController.swift; sourceTree = "<group>"; };
+		8D8126272558398D00060D92 /* UserSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectCell.swift; sourceTree = "<group>"; };
 		8D8FE4B9252AA675003199F8 /* DestinationChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationChatCell.swift; sourceTree = "<group>"; };
 		8DC0D19A2503EA84009CB3DD /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8DC0D19B2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorViewExtension.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				8D65D6FC251199F000B133E0 /* UserCell.swift */,
+				8D8126272558398D00060D92 /* UserSelectCell.swift */,
 				8DFE048A2522B62700BD01AB /* MyChatCell.swift */,
 				8D8FE4B9252AA675003199F8 /* DestinationChatCell.swift */,
 				8D01B35B252CB50300EF42FD /* ChatRoomCell.swift */,
@@ -189,6 +196,7 @@
 				8DD00A922501CE9A003468C8 /* LoginViewModel.swift */,
 				8D09F648251AC39100E1717D /* RegisterViewModel.swift */,
 				8D65D6F32511929100B133E0 /* PeopleViewModel.swift */,
+				8D77603225583BF40039D87B /* PeopleSelectViewModel.swift */,
 				8DDFB438252EA9A0006E7500 /* ProfileViewModel.swift */,
 				8D65D6F72511947900B133E0 /* ChatListViewModel.swift */,
 				8D1DE6CE2521FA28000FE641 /* ChatDetailViewModel.swift */,
@@ -203,6 +211,7 @@
 				8D4233AE2501C7A400D96C36 /* LoginViewController.swift */,
 				8D31E64C2518536D00852288 /* RegisterViewController.swift */,
 				8D65D6F12511921900B133E0 /* PeopleViewController.swift */,
+				8D812623255838DB00060D92 /* PeopleSelectViewController.swift */,
 				8DDFB435252EA98B006E7500 /* ProfileViewController.swift */,
 				8D65D6F52511946C00B133E0 /* ChatListViewController.swift */,
 				8D1DE6CB2521F9F3000FE641 /* ChatDetailViewController.swift */,
@@ -367,7 +376,9 @@
 				8DDFB439252EA9A0006E7500 /* ProfileViewModel.swift in Sources */,
 				8D01B35C252CB50300EF42FD /* ChatRoomCell.swift in Sources */,
 				8DD00A932501CE9A003468C8 /* LoginViewModel.swift in Sources */,
+				8D8126282558398D00060D92 /* UserSelectCell.swift in Sources */,
 				8DFE048B2522B62700BD01AB /* MyChatCell.swift in Sources */,
+				8D77603325583BF40039D87B /* PeopleSelectViewModel.swift in Sources */,
 				8D1DE6CF2521FA28000FE641 /* ChatDetailViewModel.swift in Sources */,
 				8D31E64D2518536D00852288 /* RegisterViewController.swift in Sources */,
 				8D4233AF2501C7A400D96C36 /* LoginViewController.swift in Sources */,
@@ -390,6 +401,7 @@
 				8D2C0043251B3D4B0040086C /* MenuViewModel.swift in Sources */,
 				8D2C0040251B3D100040086C /* MenuViewController.swift in Sources */,
 				8D65D6F22511921900B133E0 /* PeopleViewController.swift in Sources */,
+				8D812624255838DB00060D92 /* PeopleSelectViewController.swift in Sources */,
 				8DC0D19D2503EA84009CB3DD /* UIActivityIndicatorViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

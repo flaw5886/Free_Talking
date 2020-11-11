@@ -27,8 +27,15 @@ class ChatRoomCell: UICollectionViewCell {
         
         if !last.isEmpty {
             let lastComment = chatInfo.comments[last[0]]
-            self.imageView.setImage(with: user.imageUrl!)
-            self.nameLabel.text = user.name
+            
+            if chatInfo.user.count > 2 {
+                self.imageView.backgroundColor = UIColor.systemBlue
+                self.nameLabel.text = "그룹채팅"
+            } else {
+                self.imageView.setImage(with: user.imageUrl!)
+                self.nameLabel.text = user.name
+            }
+           
             self.commentLabel.text = lastComment?.message
             self.timeLabel.text = lastComment?.timestamp?.todayTime()
             

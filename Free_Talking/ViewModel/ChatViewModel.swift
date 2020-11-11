@@ -12,7 +12,7 @@ import RxCocoa
 import Firebase
 import FirebaseStorage
 
-class ChatDetailViewModel : BaseViewModel {
+class ChatViewModel : BaseViewModel {
     
     let firebaseService = FirebaseService.instance
     
@@ -43,7 +43,7 @@ class ChatDetailViewModel : BaseViewModel {
                     if let chatRoomdic = item.value as? [String:AnyObject] {
                         let chat = Chat(JSON: chatRoomdic)
                         
-                        if chat?.user[self.destinationUid!] == true {
+                        if chat?.user[self.destinationUid!] == true && chat?.user.count == 2 {
                             self.chatRoomUid = item.key
                             self.isEnabled.accept(true)
                             self.getDestinationInfo()

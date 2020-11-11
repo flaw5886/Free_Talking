@@ -25,7 +25,7 @@ class ProfileViewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showChat" {
-            let vc = segue.destination as? ChatDetailViewController
+            let vc = segue.destination as? ChatViewController
             
             vc?.viewModel.destinationUid = self.viewModel.destinationUid
             vc?.viewModel.destinationName = self.viewModel.name.value

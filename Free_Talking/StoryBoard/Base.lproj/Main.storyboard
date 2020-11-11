@@ -546,7 +546,7 @@
         <!--박진-->
         <scene sceneID="JzL-k7-WIk">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="xGM-y4-6aw" customClass="ChatDetailViewController" customModule="Free_Talking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="xGM-y4-6aw" customClass="ChatViewController" customModule="Free_Talking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6EU-D5-ZjO">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -862,7 +862,7 @@
         <!--그룹 채팅-->
         <scene sceneID="qsn-Ib-LTJ">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="2v3-DF-5eI" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="2v3-DF-5eI" customClass="GroupChatViewController" customModule="Free_Talking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fgM-yP-a6T">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1023,8 +1023,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="xGM-y4-6aw" id="QbQ-Be-ARU"/>
-                                    <outlet property="delegate" destination="xGM-y4-6aw" id="OP1-3V-20r"/>
+                                    <outlet property="dataSource" destination="2v3-DF-5eI" id="qp9-Ij-Mi0"/>
+                                    <outlet property="delegate" destination="2v3-DF-5eI" id="wD4-nb-IiD"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -1047,6 +1047,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="그룹 채팅" id="S9y-D6-D6K"/>
+                    <connections>
+                        <outlet property="chatField" destination="b5U-6r-FaD" id="6dT-yI-ipO"/>
+                        <outlet property="collectionView" destination="0wN-Nc-3mR" id="f4F-j1-KB0"/>
+                        <outlet property="sendButton" destination="RZk-GO-jqJ" id="24U-oo-qlE"/>
+                        <outlet property="viewConstraints" destination="jaf-B5-6en" id="VGH-GG-raa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2O-fQ-iCO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1055,7 +1061,7 @@
         <!--채팅-->
         <scene sceneID="MoM-md-hrA">
             <objects>
-                <viewController id="eyy-Wt-C3J" customClass="ChatListViewController" customModule="Free_Talking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eyy-Wt-C3J" customClass="ChatRoomListViewController" customModule="Free_Talking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aq0-nf-Ksb">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

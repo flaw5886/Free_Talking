@@ -10,25 +10,14 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class ChatListViewController: BaseViewController {
+class ChatRoomListViewController: BaseViewController {
     
-    let viewModel = ChatListViewModel()
+    let viewModel = ChatRoomListViewModel()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func initUI() {
         viewModel.getChatList()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showChat" {
-            let vc = segue.destination as? ChatDetailViewController
-            
-            if let index = sender as? Int {
-                vc?.viewModel.destinationUid = self.viewModel.uidList[index]
-                vc?.viewModel.destinationName = self.viewModel.nameList[index]
-            }
-        }
     }
     
     override func configureCallback() {
@@ -50,17 +39,36 @@ class ChatListViewController: BaseViewController {
     override func bindViewModel() {
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showGroupChat" {
+            let vc = segue.destination as? GroupChatViewController
+            
+            if let index = sender as? Int {
+                vc?.viewModel.chatRoomUid = viewModel.keyList[index]
+            }
+        }
+        
+        if segue.identifier == "showChat" {
+            let vc = segue.destination as? ChatViewController
+            
+            if let index = sender as? Int {
+                vc?.viewModel.destinationUid = self.viewModel.uidList[index]
+                vc?.viewModel.destinationName = self.viewModel.nameList[index]
+            }
+        }
+    }
 }
 
 
-extension ChatListViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ChatRoomListViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width * 0.95, height: 60)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.chatList.count
+        return viewModel.chatRoomList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -82,7 +90,7 @@ extension ChatListViewController : UICollectionViewDataSource, UICollectionViewD
                     
                     let user = self.viewModel.getUserInfo(data: dataSnapshot)
                     self.viewModel.nameList.append(user.name!)
-                    cell.update(chatInfo: self.viewModel.chatList[indexPath.item], user: user)
+                    cell.update(chatInfo: self.viewModel.chatRoomList[indexPath.item], user: user)
                 })
         }
         
@@ -90,7 +98,7 @@ extension ChatListViewController : UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if viewModel.chatList[indexPath.item].user.count > 2 {
+        if viewModel.chatRoomList[indexPath.item].user.count > 2 {
             performSegue(withIdentifier: "showGroupChat", sender: indexPath.item)
         } else {
             performSegue(withIdentifier: "showChat", sender: indexPath.item)

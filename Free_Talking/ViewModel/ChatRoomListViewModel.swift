@@ -12,11 +12,13 @@ import RxCocoa
 import Firebase
 import FirebaseStorage
 
-class ChatListViewModel : BaseViewModel {
+class ChatRoomListViewModel : BaseViewModel {
     
     let firebaseService = FirebaseService.instance
     
-    var chatList: [Chat] = []
+    var chatRoomList: [Chat] = []
+    
+    var keyList: [String] = []
     var uidList: [String] = []
     var nameList: [String] = []
     
@@ -25,14 +27,14 @@ class ChatListViewModel : BaseViewModel {
     func getChatList() {
         firebaseService.chatRoom.queryOrdered(byChild: "user/"+firebaseService.currentUserUid!).queryEqual(toValue: true)
             .observe(DataEventType.value, with: { (dataSnapshot) in
-                self.chatList.removeAll()
+                self.chatRoomList.removeAll()
                 
                 for item in dataSnapshot.children.allObjects as! [DataSnapshot] {
                     
                     if let chatroomdic = item.value as? [String:AnyObject] {
-                        print(chatroomdic)
                         let chat = Chat(JSON: chatroomdic)
-                        self.chatList.append(chat!)
+                        self.keyList.append(item.key)
+                        self.chatRoomList.append(chat!)
                     }
                 }
                 self.isSuccess.accept(true)
@@ -41,7 +43,7 @@ class ChatListViewModel : BaseViewModel {
     }
     
     func getUid(index: Int) {
-        for item in chatList[index].user {
+        for item in chatRoomList[index].user {
             if item.key != firebaseService.currentUserUid {
                 destinationUid = item.key
                 self.uidList.append(destinationUid!)

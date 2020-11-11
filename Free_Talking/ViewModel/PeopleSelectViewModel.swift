@@ -53,6 +53,6 @@ class PeopleSelectViewModel: BaseViewModel {
         
         let nsDic = users as NSDictionary
         
-        firebaseService.chatRoom.childByAutoId().child("users").setValue(nsDic)
+        firebaseService.chatRoom.childByAutoId().child("user").setValue(nsDic)
     }
 }

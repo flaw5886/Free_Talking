@@ -90,7 +90,11 @@ extension ChatListViewController : UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showChat", sender: indexPath.item)
+        if viewModel.chatList[indexPath.item].user.count > 2 {
+            performSegue(withIdentifier: "showGroupChat", sender: indexPath.item)
+        } else {
+            performSegue(withIdentifier: "showChat", sender: indexPath.item)
+        }
     }
 }
 

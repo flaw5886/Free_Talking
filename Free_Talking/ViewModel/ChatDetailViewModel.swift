@@ -127,16 +127,19 @@ class ChatDetailViewModel : BaseViewModel {
     }
     
     func setReadUser(nsDic: NSDictionary, data: DataSnapshot) {
-        if self.comments.last?.readUsers != nil {
-            if (!(self.comments.last?.readUsers.keys.contains(self.firebaseService.currentUserUid!))!) {
-                data.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
-                    if error == nil {
-                        self.isSuccess.accept(true)
-                    }
-                })
-            } else {
-                self.isSuccess.accept(true)
-            }
+        
+        if self.comments.last?.readUsers == nil {
+            return
+        }
+        
+        if (!(self.comments.last?.readUsers.keys.contains(self.firebaseService.currentUserUid!))!) {
+            data.ref.updateChildValues(nsDic as! [AnyHashable : Any], withCompletionBlock: { (error, ref) in
+                if error == nil {
+                    self.isSuccess.accept(true)
+                }
+            })
+        } else {
+            self.isSuccess.accept(true)
         }
     }
     

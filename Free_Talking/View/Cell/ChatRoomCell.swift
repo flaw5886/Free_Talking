@@ -19,17 +19,24 @@ class ChatRoomCell: UICollectionViewCell {
     @IBOutlet weak var alarmView: UIView!
     
     func update(chatInfo: Chat, user: User) {
-        let last = chatInfo.comments.keys.sorted() {$0>$1}
-        let lastComment = chatInfo.comments[last[0]]
-        self.imageView.setImage(with: user.imageUrl!)
-        self.nameLabel.text = user.name
-        self.commentLabel.text = lastComment?.message
-        self.timeLabel.text = lastComment?.timestamp?.todayTime()
+        if chatInfo.comments.keys.count == 0 {
+            return
+        }
         
-        if lastComment?.readUsers[self.firebaseService.currentUserUid!] == true {
-            alarmView.isHidden = true
-        } else {
-            alarmView.isHidden = false
+        let last = chatInfo.comments.keys.sorted() {$0>$1}
+        
+        if !last.isEmpty {
+            let lastComment = chatInfo.comments[last[0]]
+            self.imageView.setImage(with: user.imageUrl!)
+            self.nameLabel.text = user.name
+            self.commentLabel.text = lastComment?.message
+            self.timeLabel.text = lastComment?.timestamp?.todayTime()
+            
+            if lastComment?.readUsers[self.firebaseService.currentUserUid!] == true {
+                alarmView.isHidden = true
+            } else {
+                alarmView.isHidden = false
+            }
         }
     }
 }

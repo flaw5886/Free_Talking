@@ -30,8 +30,8 @@ class ChatListViewModel : BaseViewModel {
                 for item in dataSnapshot.children.allObjects as! [DataSnapshot] {
                     
                     if let chatroomdic = item.value as? [String:AnyObject] {
-                        let chat = Chat(JSON: chatroomdic)
                         print(chatroomdic)
+                        let chat = Chat(JSON: chatroomdic)
                         self.chatList.append(chat!)
                     }
                 }

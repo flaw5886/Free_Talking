@@ -20,6 +20,8 @@ class ChatRoomListViewController: BaseViewController {
         viewModel.getChatList()
     }
     
+    @IBAction func unwindToRoomList(_ unwindSegue: UIStoryboardSegue) { }
+    
     override func configureCallback() {
         viewModel.isSuccess.bind { value in
             if value {

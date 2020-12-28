@@ -34,6 +34,12 @@ class PeopleSelectViewController: BaseViewController {
                 self.startIndicatingActivity()
             }
         }.disposed(by: disposeBag)
+        
+        viewModel.isAdd.bind { value in
+            if value {
+                self.performSegue(withIdentifier: "unwindToRoomList", sender: nil)
+            }
+        }.disposed(by: disposeBag)
     }
     
     override func bindViewModel() {

@@ -19,6 +19,8 @@ class PeopleSelectViewModel: BaseViewModel {
     var userList: [User] = []
     var users = Dictionary<String, Bool>()
     
+    var isAdd = BehaviorRelay(value: false)
+    
     func getAllUser() {
         let userRef = firebaseService.userRef
         userRef.observe(DataEventType.value, with: { (snapshot) in
@@ -54,5 +56,7 @@ class PeopleSelectViewModel: BaseViewModel {
         let nsDic = users as NSDictionary
         
         firebaseService.chatRoom.childByAutoId().child("user").setValue(nsDic)
+        
+        isAdd.accept(true)
     }
 }

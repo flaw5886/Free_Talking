@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -183,7 +183,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="129-Ez-deS">
-                                        <rect key="frame" x="46.333333333333329" y="26.666666666666686" width="36" height="19"/>
+                                        <rect key="frame" x="46.333333333333329" y="26.666666666666686" width="197.33333333333337" height="19"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -196,6 +196,7 @@
                                     <constraint firstAttribute="width" secondItem="yLY-c9-COd" secondAttribute="height" multiplier="20:5" id="MoJ-lO-5Gk"/>
                                     <constraint firstAttribute="bottom" secondItem="Ieq-oM-zYO" secondAttribute="bottom" constant="10" id="TUA-C1-fkV"/>
                                     <constraint firstItem="129-Ez-deS" firstAttribute="leading" secondItem="Ieq-oM-zYO" secondAttribute="trailing" constant="10" id="W7R-nn-2x2"/>
+                                    <constraint firstItem="129-Ez-deS" firstAttribute="centerX" secondItem="yLY-c9-COd" secondAttribute="centerX" id="dj6-wb-3M7"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Orr-do-9Bp">
@@ -209,7 +210,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀빈호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XlI-Gc-Ftm">
-                                        <rect key="frame" x="46.333333333333329" y="27" width="48" height="18"/>
+                                        <rect key="frame" x="46.333333333333329" y="26.666666666666629" width="197.33333333333337" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -217,6 +218,7 @@
                                 <constraints>
                                     <constraint firstItem="3Ch-9q-IKR" firstAttribute="centerY" secondItem="Orr-do-9Bp" secondAttribute="centerY" id="6gU-Wv-rSB"/>
                                     <constraint firstItem="3Ch-9q-IKR" firstAttribute="leading" secondItem="Orr-do-9Bp" secondAttribute="leading" constant="10" id="CeZ-7Z-yS9"/>
+                                    <constraint firstItem="XlI-Gc-Ftm" firstAttribute="centerX" secondItem="Orr-do-9Bp" secondAttribute="centerX" id="DC9-X7-mlM"/>
                                     <constraint firstAttribute="bottom" secondItem="3Ch-9q-IKR" secondAttribute="bottom" constant="10" id="Tsa-ax-sXd"/>
                                     <constraint firstItem="XlI-Gc-Ftm" firstAttribute="leading" secondItem="3Ch-9q-IKR" secondAttribute="trailing" constant="10" id="Zcm-MT-7Oj"/>
                                     <constraint firstItem="3Ch-9q-IKR" firstAttribute="top" secondItem="Orr-do-9Bp" secondAttribute="top" constant="10" id="nMm-KC-sEA"/>
@@ -234,7 +236,7 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aMB-kL-VK5">
-                                        <rect key="frame" x="46.333333333333329" y="27.333333333333314" width="24" height="18"/>
+                                        <rect key="frame" x="46.333333333333329" y="27.333333333333314" width="197.33333333333337" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -242,6 +244,7 @@
                                 <constraints>
                                     <constraint firstItem="5Jo-g5-zM7" firstAttribute="centerY" secondItem="iTP-Wj-Iko" secondAttribute="centerY" id="Vzm-lL-UNg"/>
                                     <constraint firstItem="5Jo-g5-zM7" firstAttribute="leading" secondItem="iTP-Wj-Iko" secondAttribute="leading" constant="10" id="ayP-mg-88w"/>
+                                    <constraint firstItem="aMB-kL-VK5" firstAttribute="centerX" secondItem="iTP-Wj-Iko" secondAttribute="centerX" id="qix-AA-ggP"/>
                                     <constraint firstItem="aMB-kL-VK5" firstAttribute="centerY" secondItem="iTP-Wj-Iko" secondAttribute="centerY" id="tqJ-bS-XGD"/>
                                     <constraint firstItem="5Jo-g5-zM7" firstAttribute="top" secondItem="iTP-Wj-Iko" secondAttribute="top" constant="10" id="wSp-gH-Jau"/>
                                     <constraint firstItem="aMB-kL-VK5" firstAttribute="leading" secondItem="5Jo-g5-zM7" secondAttribute="trailing" constant="10" id="y3A-Ll-rKH"/>
@@ -853,11 +856,13 @@
                     <connections>
                         <outlet property="checkButton" destination="6aO-1H-PqK" id="5F4-BD-LsH"/>
                         <outlet property="collectionView" destination="hmD-vl-TwN" id="eAO-fe-Zou"/>
+                        <segue destination="KPD-sv-3vh" kind="unwind" identifier="unwindToRoomList" unwindAction="unwindToRoomList:" id="aav-I0-TVk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3X3-do-F7z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="KPD-sv-3vh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="48" y="2563"/>
+            <point key="canvasLocation" x="865" y="2563"/>
         </scene>
         <!--그룹 채팅-->
         <scene sceneID="qsn-Ib-LTJ">
@@ -1316,7 +1321,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="osi-eu-qaS"/>
+        <segue reference="gF2-Zr-IEn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.2821268737" green="0.50245946649999995" blue="0.92945522069999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
